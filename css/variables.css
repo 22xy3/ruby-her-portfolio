@@ -1,0 +1,52 @@
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — Ruby Her Portfolio
+   Every color, font, and spacing decision lives here.
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Palette ── */
+  --cream:        #F4F0EC;
+  --cream-warm:   #FAF9F5;
+  --charcoal:     #1A1A1A;
+  --deep:         #1F150B;
+  --terracotta:   #C4552A;
+  --terra-hero:   #BE4A25;
+  --amber:        #F5851F;
+  --blush:        #E8C4B4;
+  --blush-pink:   #F2A0B0;
+  --rose:         #D4697A;
+  --plum:         #2D1B2E;
+  --navy:         #1E2040;
+  --sage:         #3A4A3A;
+  --wine:         #5C1A2A;
+  --gray-light:   #C8C3BA;
+  --gray-faint:   #E5E0D8;
+
+  /* ── Typography ── */
+  --font-script:  'Pinyon Script', cursive;
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'Space Grotesk', 'Helvetica Neue', sans-serif;
+
+  /* ── Spacing scale ── */
+  --space-xs:   .5rem;
+  --space-sm:   1rem;
+  --space-md:   2rem;
+  --space-lg:   4rem;
+  --space-xl:   8rem;
+  --space-sec:  clamp(5rem, 10vw, 8rem);
+  --space-pad:  clamp(2rem, 6vw, 5rem);
+
+  /* ── Easing ── */
+  --ease-out-expo:  cubic-bezier(.16, 1, .3, 1);
+  --ease-out-quint: cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out:    cubic-bezier(.65, 0, .35, 1);
+
+  /* ── Z-layers ── */
+  --z-cursor:   10001;
+  --z-cursor-r: 10000;
+  --z-loader:   9999;
+  --z-noise:    9998;
+  --z-nav:      1000;
+  --z-mobile:   1001;
+  --z-ham:      1002;
+}
