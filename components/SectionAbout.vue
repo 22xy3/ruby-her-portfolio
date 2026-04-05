@@ -24,19 +24,12 @@
         <h2 data-split>Hey, I'm Ruby.</h2>
 
         <div class="about-text">
-          <p>Hmong-American. First-gen. Information Sciences student at UW-Madison. I'm the kind of person who ends up in rooms I wasn't expected to be in — and then makes sure the door stays open for everyone behind me.</p>
-          <p>I found marketing through healthcare advocacy and community organizing, not a textbook. Turns out, the best marketers are the ones who actually have something to say.</p>
+          <p>Hi there! I am a Hmong-American and first-generation college student at the University of Wisconsin-Madison, pursuing Information Sciences on the pre-business track for Marketing and Management.</p>
+          <p>My passion for consumer insight and communication began with my experiences in healthcare, which include PATCH (Providers and Teens Communicating for Health) and Medical College of Wisconsin's StEP-UP program. Alongside healthcare, I have cultivated strong business and leadership experience through my positions as Senior Editor &amp; TikTok Support Lead at The Vault, Marketing &amp; PR Outreach Co-Coordinator at Curation Media, and Creative Strategist at Structa Media.</p>
+          <p>As an All-in-Milwaukee, Milwaukee's Finest, and Kelben's Scholar, my long-term goal is to build a career in marketing and communications, where I can combine analytical insight with cultural awareness and creative storytelling. I am eager to continue learning, growing, and contributing to your wonderful organization!</p>
         </div>
 
-        <blockquote class="pull-quote rv rv-d2">
-          The best marketing doesn't just sell — it tells the truth beautifully and builds bridges between cultures and communities.
-        </blockquote>
-
-        <div class="about-text rv rv-d3">
-          <p>All-in-Milwaukee Scholar. Milwaukee's Finest. Kelben Foundation Scholar. Not titles I chase — they're reminders of who raised me and who I'm building for.</p>
-        </div>
-
-        <div class="stats-row rv rv-d4">
+        <div class="stats-row rv rv-d2">
           <div v-for="stat in stats" :key="stat.label">
             <div class="stat-num"><span class="count-up" :data-target="stat.target" :data-suffix="stat.suffix">0</span></div>
             <div class="stat-lbl">{{ stat.label }}</div>

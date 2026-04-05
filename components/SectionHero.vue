@@ -1,5 +1,10 @@
 <template>
   <section class="hero" id="hero">
+    <!-- Abstract gradient orbs -->
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+
     <div class="hero-ghost" aria-hidden="true" data-parallax="0.05">Ruby</div>
 
     <span class="hero-float f1" data-parallax="0.15">storyteller</span>
