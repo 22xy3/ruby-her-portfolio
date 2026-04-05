@@ -8,6 +8,7 @@ import { initNavigation } from './navigation.js';
 import { initScrollReveal, initParallax, initCounters, initImageReveal } from './scroll.js';
 import { initMagnetic } from './magnetic.js';
 import { initTilt } from './tilt.js';
+import { initFolders } from './folders.js';
 import { initTextSplit } from './text-effects.js';
 import { initForm } from './form.js';
 
@@ -27,6 +28,7 @@ async function init() {
   initImageReveal();
   initMagnetic();
   initTilt();
+  initFolders();
   initTextSplit();
   initForm();
 }
