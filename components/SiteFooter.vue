@@ -1,88 +1,82 @@
 <template>
   <footer class="big-footer" id="contact">
-    <div class="bf-inner">
-      <h2 class="bf-heading rv">
-        Get in <em>touch</em>
-      </h2>
-
-      <form class="bf-form rv rv-d1" @submit.prevent="handleSubmit">
-        <div class="bf-form-grid">
-          <div class="bf-field">
-            <label class="bf-label" for="cf-name">Full name</label>
-            <input id="cf-name" v-model="form.name" type="text" placeholder="Your name" required>
-          </div>
-          <div class="bf-field">
-            <label class="bf-label" for="cf-email">Email</label>
-            <input id="cf-email" v-model="form.email" type="email" placeholder="you@email.com" required>
-          </div>
-          <div class="bf-field">
-            <label class="bf-label" for="cf-company">Company</label>
-            <input id="cf-company" v-model="form.company" type="text" placeholder="Your company">
-          </div>
-          <div class="bf-field bf-field-wide">
-            <label class="bf-label" for="cf-message">Project details</label>
-            <textarea id="cf-message" v-model="form.message" placeholder="Tell me about your project" rows="4"></textarea>
-          </div>
-          <div class="bf-field">
-            <label class="bf-label">What can I help with?</label>
-            <div class="bf-pills">
-              <button v-for="s in services" :key="s" type="button"
-                :class="['bf-pill', { active: form.services.includes(s) }]"
-                @click="toggleService(s)">{{ s }}</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="bf-submit-row">
-          <button type="submit" class="bf-submit magnetic" data-strength="0.15">
-            <span>Send it</span> ✦
-          </button>
-        </div>
-      </form>
-
-      <p v-if="submitted" class="bf-success rv">Got it — I'll be in touch.</p>
+    <div class="bf-topbar">
+      <span class="bf-location">Madison, WI</span>
+      <span class="bf-time">{{ time }}</span>
     </div>
 
-    <div class="bf-footer-bar">
+    <h2 class="bf-heading rv">
+      Let's work <em>together.</em>
+    </h2>
+
+    <div class="bf-trivia rv rv-d2">
+      <button class="trivia-btn" @click="nextFact">✦ Fun fact about Ruby</button>
+      <p class="trivia-text" :style="{ opacity: factVisible ? 1 : 0 }">{{ currentFact }}</p>
+    </div>
+
+    <div class="bf-socials rv rv-d3">
+      <a href="tel:+14145191960" class="bf-social-link">
+        <span class="mask"><span class="line">(414) 519-1960</span><span class="line">(414) 519-1960</span></span>
+      </a>
+      <span class="bf-social-dot">♦</span>
+      <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="bf-social-link">
+        <span class="mask"><span class="line">LinkedIn</span><span class="line">LinkedIn</span></span>
+      </a>
+      <span class="bf-social-dot">♦</span>
+      <a href="mailto:her.ruby@outlook.com" class="bf-social-link">
+        <span class="mask"><span class="line">her.ruby@outlook.com</span><span class="line">her.ruby@outlook.com</span></span>
+      </a>
+    </div>
+
+    <div class="bf-bottom">
       <span>&copy;2026 Ruby Her</span>
-      <div class="bf-footer-links">
-        <a href="tel:+14145191960">(414) 519-1960</a>
-        <span class="bf-footer-dot">♦</span>
-        <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <span class="bf-footer-dot">♦</span>
-        <a href="mailto:her.ruby@outlook.com">her.ruby@outlook.com</a>
-      </div>
+      <a href="mailto:her.ruby@outlook.com">Email</a>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-const submitted = ref(false)
+const time = ref('')
+const currentFact = ref('')
+const factVisible = ref(true)
+let lastIdx = -1
 
-const form = reactive({
-  name: '',
-  email: '',
-  company: '',
-  message: '',
-  services: [] as string[],
-})
-
-const services = [
-  'Content Strategy',
-  'Brand Storytelling',
-  'PR & Outreach',
-  'Creative Direction',
-  'Editorial',
-  'Social Media',
+const facts = [
+  'Ruby advocated at the Wisconsin State Capitol for Hmong history in schools — while still in high school.',
+  'She\'s a first-generation college student pursuing Business Marketing at UW-Madison.',
+  'She develops content strategies for creators with 15M+ combined followers at Structa Media.',
+  'Milwaukee\'s Finest Scholar — recognized for academic excellence and community impact.',
+  'She speaks Hmong and English.',
+  'Teen representative at the NASW-WI 50th Annual Conference.',
+  'All-in-Milwaukee Scholar, 7th Cohort.',
+  'Her marketing career started in healthcare — PATCH and Medical College of Wisconsin\'s StEP-UP program.',
+  'Bucky Pathway Scholar at UW-Madison.',
+  'She writes conversion-focused scripts for digital creators at Structa Media in Atlanta.',
 ]
 
-function toggleService(s: string) {
-  const idx = form.services.indexOf(s)
-  if (idx >= 0) form.services.splice(idx, 1)
-  else form.services.push(s)
+function nextFact() {
+  let idx: number
+  do { idx = Math.floor(Math.random() * facts.length) } while (idx === lastIdx)
+  lastIdx = idx
+  factVisible.value = false
+  setTimeout(() => {
+    currentFact.value = facts[idx]
+    factVisible.value = true
+  }, 200)
 }
 
-function handleSubmit() {
-  submitted.value = true
+function updateClock() {
+  const now = new Date()
+  const h = now.getHours()
+  const m = String(now.getMinutes()).padStart(2, '0')
+  const ampm = h >= 12 ? 'PM' : 'AM'
+  const h12 = h % 12 || 12
+  time.value = `${String(h12).padStart(2, '0')} ${m} ${ampm}`
 }
+
+onMounted(() => {
+  updateClock()
+  setInterval(updateClock, 10000)
+  nextFact()
+})
 </script>
