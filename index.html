@@ -184,119 +184,150 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     WORK — Folder stack
+     WORK — Stacked folder cards (GSAP ScrollTrigger)
      ═══════════════════════════════════════ -->
 <section class="work-sec" id="sc1">
   <div class="work-header rv">
     <h2 class="work-title" data-split>Experience</h2>
-    <span class="work-tag">click to expand</span>
+    <span class="work-tag">scroll to explore</span>
   </div>
 
-  <div class="folders rv rv-d1">
+  <div class="cards">
 
-    <article class="folder" data-color="#2A1A2E">
-      <div class="folder-tab">
-        <span class="folder-num">01</span>
-        <div class="folder-info">
-          <h3 class="folder-name">Curation Media</h3>
-          <p class="folder-role">Marketing &amp; Co-outreach Coordinator</p>
+    <!-- Card 0: Curation Media -->
+    <div id="card-0" class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <h3 class="card-title">Curation Media</h3>
+          <p class="card-number">(01)</p>
         </div>
-        <span class="folder-date">Feb 2026 – Present</span>
-        <span class="folder-arrow">✦</span>
-      </div>
-      <div class="folder-body">
-        <p class="folder-desc">Leads marketing strategy and PR outreach coordination for an independent media organization, shaping brand voice and community engagement across platforms.</p>
-        <div class="folder-tags">
-          <span class="sc-tag">Marketing</span>
-          <span class="sc-tag">PR</span>
-          <span class="sc-tag">Community</span>
+        <div class="card-bottom">
+          <div class="card-text">
+            <p class="card-role">Marketing &amp; Co-outreach Coordinator</p>
+            <p class="card-desc">Leads marketing strategy and PR outreach coordination for an independent media organization, shaping brand voice and community engagement across platforms.</p>
+            <div class="card-tags">
+              <span class="card-tag">Marketing</span>
+              <span class="card-tag">PR &amp; Outreach</span>
+              <span class="card-tag">Brand Voice</span>
+              <span class="card-tag">Community</span>
+              <span class="card-tag">Strategy</span>
+            </div>
+          </div>
+          <div class="card-meta-side">
+            <p class="card-date">Feb 2026 – Present</p>
+            <p class="card-loc">Madison, WI</p>
+          </div>
         </div>
-        <p class="folder-loc">Madison, WI</p>
       </div>
-    </article>
+    </div>
 
-    <article class="folder" data-color="#1E1222">
-      <div class="folder-tab">
-        <span class="folder-num">02</span>
-        <div class="folder-info">
-          <h3 class="folder-name">Cloud Closet</h3>
-          <p class="folder-role">Marketing + PR/Outreach Intern</p>
+    <!-- Card 1: Cloud Closet -->
+    <div id="card-1" class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <h3 class="card-title">Cloud Closet</h3>
+          <p class="card-number">(02)</p>
         </div>
-        <span class="folder-date">Feb 2026 – Present</span>
-        <span class="folder-arrow">✦</span>
-      </div>
-      <div class="folder-body">
-        <p class="folder-desc">Contributing to brand storytelling, community outreach, and marketing strategy for a digital fashion and media startup. Featured at Wisconsin Vintage Fest and covered by WISC-TV and WKOW.</p>
-        <div class="folder-tags">
-          <span class="sc-tag">Startup</span>
-          <span class="sc-tag">Brand</span>
-          <span class="sc-tag">Fashion</span>
+        <div class="card-bottom">
+          <div class="card-text">
+            <p class="card-role">Marketing + PR/Outreach Intern</p>
+            <p class="card-desc">Contributing to brand storytelling, community outreach, and marketing strategy for a digital fashion and media startup. Featured at Wisconsin Vintage Fest and covered by WISC-TV and WKOW.</p>
+            <div class="card-tags">
+              <span class="card-tag">Startup</span>
+              <span class="card-tag">Brand Storytelling</span>
+              <span class="card-tag">Fashion</span>
+              <span class="card-tag">PR</span>
+              <span class="card-tag">Community Outreach</span>
+            </div>
+          </div>
+          <div class="card-meta-side">
+            <p class="card-date">Feb 2026 – Present</p>
+            <p class="card-loc">Madison, WI</p>
+          </div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="folder" data-color="#16101A">
-      <div class="folder-tab">
-        <span class="folder-num">03</span>
-        <div class="folder-info">
-          <h3 class="folder-name">The Vault</h3>
-          <p class="folder-role">Senior Editor &amp; TikTok Support Lead</p>
+    <!-- Card 2: The Vault -->
+    <div id="card-2" class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <h3 class="card-title">The Vault</h3>
+          <p class="card-number">(03)</p>
         </div>
-        <span class="folder-date">Sep 2025 – Present</span>
-        <span class="folder-arrow">✦</span>
-      </div>
-      <div class="folder-body">
-        <p class="folder-desc">Leads editorial content direction and supports TikTok strategy and content production, bridging editorial craft with social-first storytelling.</p>
-        <div class="folder-tags">
-          <span class="sc-tag">Editorial</span>
-          <span class="sc-tag">Social Media</span>
-          <span class="sc-tag">TikTok</span>
+        <div class="card-bottom">
+          <div class="card-text">
+            <p class="card-role">Senior Editor &amp; TikTok Support Lead</p>
+            <p class="card-desc">Leads editorial content direction and supports TikTok strategy and content production, bridging editorial craft with social-first storytelling.</p>
+            <div class="card-tags">
+              <span class="card-tag">Editorial</span>
+              <span class="card-tag">TikTok</span>
+              <span class="card-tag">Social Media</span>
+              <span class="card-tag">Content Direction</span>
+              <span class="card-tag">Storytelling</span>
+            </div>
+          </div>
+          <div class="card-meta-side">
+            <p class="card-date">Sep 2025 – Present</p>
+            <p class="card-loc">Madison, WI</p>
+          </div>
         </div>
-        <p class="folder-loc">Madison, WI</p>
       </div>
-    </article>
+    </div>
 
-    <article class="folder" data-color="#221528">
-      <div class="folder-tab">
-        <span class="folder-num">04</span>
-        <div class="folder-info">
-          <h3 class="folder-name">Structa Media</h3>
-          <p class="folder-role">Creative Strategist &amp; Executive Assistant</p>
+    <!-- Card 3: Structa Media -->
+    <div id="card-3" class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <h3 class="card-title">Structa Media</h3>
+          <p class="card-number">(04)</p>
         </div>
-        <span class="folder-date">Apr 2025 – Present</span>
-        <span class="folder-arrow">✦</span>
-      </div>
-      <div class="folder-body">
-        <p class="folder-desc">Produces scripts, creative direction, and strategy for a premiere digital creator agency. Creates content assets for networks with over 15 million active subscribers.</p>
-        <div class="folder-tags">
-          <span class="sc-tag">Strategy</span>
-          <span class="sc-tag">Creative</span>
-          <span class="sc-tag">Scripts</span>
+        <div class="card-bottom">
+          <div class="card-text">
+            <p class="card-role">Creative Strategist &amp; Executive Assistant</p>
+            <p class="card-desc">Produces scripts, creative direction, and strategy for a premiere digital creator agency. Creates content assets for networks with over 15 million active subscribers.</p>
+            <div class="card-tags">
+              <span class="card-tag">Creative Strategy</span>
+              <span class="card-tag">Scripts</span>
+              <span class="card-tag">Direction</span>
+              <span class="card-tag">15M+ Reach</span>
+              <span class="card-tag">Digital Media</span>
+            </div>
+          </div>
+          <div class="card-meta-side">
+            <p class="card-date">Apr 2025 – Present</p>
+            <p class="card-loc">Remote</p>
+          </div>
         </div>
-        <p class="folder-loc">Remote</p>
       </div>
-    </article>
+    </div>
 
-    <article class="folder" data-color="#1A121E">
-      <div class="folder-tab">
-        <span class="folder-num">05</span>
-        <div class="folder-info">
-          <h3 class="folder-name">California Mini-Corps</h3>
-          <p class="folder-role">Research &amp; Data Assistant</p>
+    <!-- Card 4: California Mini-Corps -->
+    <div id="card-4" class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <h3 class="card-title">California Mini-Corps</h3>
+          <p class="card-number">(05)</p>
         </div>
-        <span class="folder-date">Dec 2025 – Jan 2026</span>
-        <span class="folder-arrow">✦</span>
-      </div>
-      <div class="folder-body">
-        <p class="folder-desc">Managed large datasets, ensured data integrity, and supported research and operational decision-making for the California Department of Education.</p>
-        <div class="folder-tags">
-          <span class="sc-tag">Research</span>
-          <span class="sc-tag">Data</span>
-          <span class="sc-tag">Education</span>
+        <div class="card-bottom">
+          <div class="card-text">
+            <p class="card-role">Research &amp; Data Assistant</p>
+            <p class="card-desc">Managed large datasets, ensured data integrity, and supported research and operational decision-making for the California Department of Education.</p>
+            <div class="card-tags">
+              <span class="card-tag">Research</span>
+              <span class="card-tag">Data Integrity</span>
+              <span class="card-tag">Education</span>
+              <span class="card-tag">Analysis</span>
+              <span class="card-tag">Operations</span>
+            </div>
+          </div>
+          <div class="card-meta-side">
+            <p class="card-date">Dec 2025 – Jan 2026</p>
+            <p class="card-loc">Remote</p>
+          </div>
         </div>
-        <p class="folder-loc">Remote</p>
       </div>
-    </article>
+    </div>
 
   </div>
 </section>
@@ -462,6 +493,11 @@
 <footer class="footer">
   <p>Ruby Her &copy; 2026 &nbsp;<span class="star">✦</span>&nbsp; Made with intention</p>
 </footer>
+
+<!-- GSAP + Lenis from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
 
 <!-- Modular JavaScript -->
 <script type="module" src="js/app.js"></script>

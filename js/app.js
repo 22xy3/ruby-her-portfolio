@@ -8,7 +8,7 @@ import { initNavigation } from './navigation.js';
 import { initScrollReveal, initParallax, initCounters, initImageReveal } from './scroll.js';
 import { initMagnetic } from './magnetic.js';
 import { initTilt } from './tilt.js';
-import { initFolders } from './folders.js';
+import { initStackedCards, initLenis } from './stacked-cards.js';
 import { initTextSplit } from './text-effects.js';
 import { initForm } from './form.js';
 
@@ -20,6 +20,9 @@ async function init() {
   // Wait for the loader to finish its entrance
   await initLoader();
 
+  // Lenis smooth scroll first (must be before ScrollTrigger stuff)
+  initLenis();
+
   // Initialize everything else
   initNavigation();
   initScrollReveal();
@@ -28,7 +31,7 @@ async function init() {
   initImageReveal();
   initMagnetic();
   initTilt();
-  initFolders();
+  initStackedCards();
   initTextSplit();
   initForm();
 }
