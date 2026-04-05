@@ -452,11 +452,11 @@
 }
 
 /* Section color themes */
-.sc-1 { background: #A8432A; color: var(--cream); }
+.sc-1 { background: #4A2E4E; color: var(--cream); }
 .sc-1 .sc-num { color: var(--amber); }
 .sc-1 .sc-role { color: var(--blush); }
 
-.sc-2 { background: #D4697A; color: var(--cream-warm); justify-content: flex-end; }
+.sc-2 { background: #6B4570; color: var(--cream-warm); justify-content: flex-end; }
 .sc-2 .sc-num { color: rgba(255, 255, 255, .5); }
 .sc-2 .sc-role { color: rgba(255, 255, 255, .7); }
 
@@ -900,7 +900,7 @@
 .fg select:focus,
 .fg textarea:focus {
   border-color: var(--terracotta);
-  box-shadow: 0 2px 12px rgba(196, 85, 42, .08);
+  box-shadow: 0 2px 12px rgba(60, 42, 63, .15);
 }
 
 .fg textarea {
