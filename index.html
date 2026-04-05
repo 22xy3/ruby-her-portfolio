@@ -417,75 +417,40 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     CONTACT
+     FOOTER — Let's work together
      ═══════════════════════════════════════ -->
-<section class="contact-sec" id="contact">
-  <div class="contact-wrap">
-    <div class="rv">
-      <h2 class="contact-title" data-split>Let's Talk</h2>
-      <p class="contact-sub">Open to marketing opportunities, creative collaborations, and community projects.</p>
-      <div class="contact-links">
-        <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="magnetic" data-strength="0.25">
-          <span class="star" style="font-size:.5rem">✦</span> LinkedIn
-        </a>
-        <a href="mailto:hello@rubyher.com" class="magnetic" data-strength="0.25">
-          <span class="star" style="font-size:.5rem">✦</span> hello@rubyher.com
-        </a>
-      </div>
-      <p class="contact-flavor">Based in Madison, WI · Always open to a good conversation.</p>
-    </div>
-
-    <div class="rv rv-d1">
-      <form class="cform" id="cform" novalidate>
-        <div class="fg">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-          <span class="fe">Please enter your name.</span>
-        </div>
-        <div class="fg">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com">
-          <span class="fe">Please enter a valid email.</span>
-        </div>
-        <div class="fg">
-          <label for="subject">What's this about?</label>
-          <select id="subject" name="subject" required>
-            <option value="" disabled selected>Select one</option>
-            <option value="internship">Internship Opportunity</option>
-            <option value="collab">Creative Collaboration</option>
-            <option value="hi">Just saying hi</option>
-            <option value="other">Other</option>
-          </select>
-          <span class="fe">Please select a topic.</span>
-        </div>
-        <div class="fg">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="What's on your mind?"></textarea>
-          <span class="fe">Please write a message.</span>
-        </div>
-        <button type="submit" class="sub-btn magnetic" data-strength="0.15">
-          <span>Send it ✦</span>
-        </button>
-      </form>
-      <div class="form-ok" id="formOk">Thanks for reaching out. I'll be in touch soon. ✦</div>
-    </div>
+<footer class="big-footer" id="contact">
+  <!-- Top bar -->
+  <div class="bf-topbar">
+    <span class="bf-location">Madison, WI</span>
+    <span class="bf-time" id="liveTime"></span>
   </div>
-</section>
 
-<!-- Footer ticker -->
-<div class="ticker on-cream" aria-hidden="true">
-  <div class="ticker-in">
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
-    <span>let's connect!</span><span>✦</span><span>thanks for visiting!</span><span>✦</span>
+  <!-- Main heading -->
+  <h2 class="bf-heading rv">
+    Let's work <em>together!</em>
+  </h2>
+
+  <!-- Floating pill blobs -->
+  <div class="bf-blobs" aria-hidden="true">
+    <a href="mailto:hello@rubyher.com" class="bf-blob bf-blob-1">
+      <span>Say hi!</span>
+    </a>
+    <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="bf-blob bf-blob-2">
+      <span>Reach out</span>
+    </a>
+    <a href="mailto:hello@rubyher.com?subject=Collaboration" class="bf-blob bf-blob-3">
+      <span>Connect</span>
+    </a>
   </div>
-</div>
 
-<footer class="footer">
-  <p>Ruby Her &copy; 2026 &nbsp;<span class="star">✦</span>&nbsp; Made with intention</p>
+  <!-- Bottom bar -->
+  <div class="bf-bottom">
+    <span>&copy;2026 Ruby Her</span>
+    <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="mailto:hello@rubyher.com">Email</a>
+    <span>Made with intention</span>
+  </div>
 </footer>
 
 <!-- GSAP + Lenis from CDN -->

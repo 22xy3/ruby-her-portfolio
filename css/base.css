@@ -294,13 +294,4 @@ img {
   .ham { display: flex; }
 }
 
-/* ── Footer ── */
-.footer {
-  text-align: center;
-  padding: 3rem 0 2rem;
-  font-size: .6rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--white-muted);
-  background: var(--deep);
-}
+/* old footer removed — replaced by .big-footer in components */

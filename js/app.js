@@ -10,7 +10,21 @@ import { initMagnetic } from './magnetic.js';
 import { initTilt } from './tilt.js';
 import { initStackedCards, initLenis } from './stacked-cards.js';
 import { initTextSplit } from './text-effects.js';
-import { initForm } from './form.js';
+// Live clock for footer
+function initClock() {
+  const el = document.getElementById('liveTime');
+  if (!el) return;
+  function update() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12 = h % 12 || 12;
+    el.textContent = `${String(h12).padStart(2, '0')} ${m} ${ampm}`;
+  }
+  update();
+  setInterval(update, 10000);
+}
 
 // Start the experience
 async function init() {
@@ -33,7 +47,7 @@ async function init() {
   initTilt();
   initStackedCards();
   initTextSplit();
-  initForm();
+  initClock();
 }
 
 // Go
