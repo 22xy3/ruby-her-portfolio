@@ -325,14 +325,13 @@
 }
 
 /* ═══════════════════════════════════════
-   WORK — Stacked folder cards (GSAP)
+   WORK — Sticky stacked folder cards
    ═══════════════════════════════════════ */
 .work-sec {
-  padding: clamp(3rem, 5vw, 4rem) clamp(.75rem, 2vw, 1rem);
-  padding-bottom: 1rem;
+  padding: clamp(3rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+  padding-bottom: 2rem;
   background: var(--deep);
   position: relative;
-  overflow: visible;
 }
 
 .work-header {
@@ -340,11 +339,11 @@
   align-items: baseline;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-  max-width: 1200px;
+  margin-bottom: 2rem;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 clamp(.5rem, 2vw, 1.5rem);
+  padding: 0 .5rem;
 }
 
 .work-title {
@@ -361,47 +360,73 @@
   color: var(--white-muted);
 }
 
-/* Cards container */
+/* Cards stack — sticky positioning for natural overlap */
 .cards {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 10vh;
 }
 
-/* Each card wrapper — pb peeks the next card's edge */
 .card {
-  position: relative;
-  padding-bottom: 8px;
+  position: sticky;
+  will-change: transform;
 }
 
-/* The visible card panel */
+/* Stagger the sticky top so cards peek behind each other */
+.card:nth-child(1) { top: 2vh; z-index: 1; }
+.card:nth-child(2) { top: 4vh; z-index: 2; }
+.card:nth-child(3) { top: 6vh; z-index: 3; }
+.card:nth-child(4) { top: 8vh; z-index: 4; }
+.card:nth-child(5) { top: 10vh; z-index: 5; }
+
+/* The card panel */
 .card-inner {
-  position: relative;
   will-change: transform;
   width: 100%;
   padding: 1.5rem;
   border-radius: 0.75rem;
   transform-origin: center top;
-  min-height: 55vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  transition: transform .3s var(--ease-out-expo), opacity .3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .25);
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .card-inner {
-    padding: 2.5rem 3rem;
+    padding: 2rem 2.5rem;
     border-radius: 1rem;
-    min-height: 70vh;
+    margin-bottom: 2rem;
   }
 }
 
-/* Per-card colors — each folder is a distinct shade */
-#card-0 .card-inner { color: #2A1A2E; background-color: #E0D0E8; }
-#card-1 .card-inner { color: #1E1222; background-color: #D4C1D9; }
-#card-2 .card-inner { color: #16101A; background-color: #C8B8D0; }
-#card-3 .card-inner { color: #221528; background-color: #B8A8C8; }
-#card-4 .card-inner { color: #1A121E; background-color: #A898B8; }
+/* Per-card colors + subtle rotations — each folder is distinct */
+#card-0 .card-inner {
+  color: #2A1A2E;
+  background: linear-gradient(135deg, #E8D5F0 0%, #D8C0E0 100%);
+  transform: rotate(-0.8deg);
+}
+#card-1 .card-inner {
+  color: #1E1222;
+  background: linear-gradient(135deg, #F0D0D8 0%, #E0B8C8 100%);
+  transform: rotate(0.6deg);
+}
+#card-2 .card-inner {
+  color: #0E2828;
+  background: linear-gradient(135deg, #C8E0E0 0%, #A8D0D0 100%);
+  transform: rotate(-0.5deg);
+}
+#card-3 .card-inner {
+  color: #2A2010;
+  background: linear-gradient(135deg, #E8E0C8 0%, #D8D0B0 100%);
+  transform: rotate(0.9deg);
+}
+#card-4 .card-inner {
+  color: #1A121E;
+  background: linear-gradient(135deg, #D8C8E8 0%, #C0B0D8 100%);
+  transform: rotate(-0.4deg);
+}
 
 /* Top row: title + number */
 .card-top {
@@ -409,18 +434,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: .8rem;
 }
 
 @media (min-width: 1024px) {
   .card-top {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
   }
 }
 
 .card-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 6vw, 5.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -.02em;
   line-height: .95;
@@ -428,19 +453,19 @@
 
 .card-number {
   font-family: var(--font-sans);
-  font-size: clamp(.9rem, 1.2vw, 1rem);
+  font-size: clamp(.75rem, 1vw, .85rem);
   font-weight: 600;
   letter-spacing: .1em;
   margin-top: .3rem;
-  opacity: .4;
+  opacity: .35;
 }
 
 @media (min-width: 1024px) {
   .card-number {
-    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
     letter-spacing: normal;
     margin-top: 0;
-    opacity: .2;
+    opacity: .15;
   }
 }
 
@@ -448,7 +473,7 @@
 .card-bottom {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -463,48 +488,43 @@
 .card-text {
   display: flex;
   flex-direction: column;
-  gap: .6rem;
+  gap: .5rem;
   width: 100%;
 }
 
 @media (min-width: 1024px) {
   .card-text {
     width: 65%;
-    gap: .8rem;
+    gap: .6rem;
   }
 }
 
 .card-role {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(.75rem, 1vw, .9rem);
-  opacity: .6;
+  font-size: clamp(.75rem, 1vw, .88rem);
+  opacity: .55;
 }
 
 .card-desc {
   font-family: var(--font-sans);
-  font-size: clamp(.9rem, 1.6vw, 1.25rem);
-  font-weight: 600;
-  line-height: 1.45;
+  font-size: clamp(.82rem, 1.3vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: .4rem;
-}
-
-@media (min-width: 1536px) {
-  .card-tags {
-    gap: .6rem;
-  }
+  gap: .35rem;
+  margin-top: .2rem;
 }
 
 .card-tag {
-  font-size: clamp(.7rem, 1vw, .85rem);
-  padding: .3rem .85rem;
+  font-size: clamp(.6rem, .85vw, .75rem);
+  padding: .25rem .7rem;
   border-radius: 100px;
-  background: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .5);
   font-weight: 600;
   white-space: nowrap;
   transition: all .25s var(--ease-out-expo);
@@ -518,7 +538,7 @@
 .card-meta-side {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: .8rem;
   width: 100%;
 }
 
@@ -527,26 +547,26 @@
     flex-direction: column;
     width: auto;
     text-align: right;
-    gap: .4rem;
-    min-width: 160px;
+    gap: .3rem;
+    min-width: 140px;
   }
 }
 
 .card-date {
   font-family: var(--font-sans);
-  font-size: clamp(.65rem, .9vw, .8rem);
+  font-size: clamp(.6rem, .8vw, .72rem);
   letter-spacing: .1em;
   text-transform: uppercase;
   font-weight: 600;
-  opacity: .5;
+  opacity: .45;
 }
 
 .card-loc {
   font-family: var(--font-sans);
-  font-size: clamp(.6rem, .8vw, .75rem);
+  font-size: clamp(.55rem, .7vw, .65rem);
   letter-spacing: .15em;
   text-transform: uppercase;
-  opacity: .35;
+  opacity: .3;
 }
 
 /* ═══════════════════════════════════════
