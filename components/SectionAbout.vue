@@ -47,6 +47,6 @@
 const stats = [
   { target: '5', suffix: '+', label: 'Roles' },
   { target: '15', suffix: 'M+', label: 'Network Reach' },
-  { target: '3', suffix: '', label: 'Scholarships' },
+  { target: '3', suffix: '+', label: 'Scholarships' },
 ]
 </script>
