@@ -159,63 +159,6 @@ img {
   to { transform: scaleX(1); }
 }
 
-/* ── Vertical side nav ── */
-.vnav {
-  position: fixed;
-  top: 50%;
-  left: clamp(.8rem, 1.5vw, 1.5rem);
-  transform: translateY(-50%);
-  z-index: var(--z-nav);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.vnav a {
-  font-family: var(--font-sans);
-  font-size: .65rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  color: var(--white);
-  transition: all .3s ease;
-  padding: .3rem 0;
-  position: relative;
-  opacity: .7;
-}
-
-.vnav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width .3s var(--ease-out-expo);
-  transform: translateX(-50%);
-}
-
-.vnav a:hover {
-  color: var(--amber);
-  transform: rotate(180deg) translateY(-3px);
-  opacity: 1;
-}
-
-.vnav a:hover::after {
-  width: 100%;
-}
-
-.vnav.light a { color: var(--white); opacity: .5; }
-.vnav.light a:hover { color: var(--amber); opacity: 1; }
-
-@media (max-width: 768px) {
-  .vnav { display: none; }
-}
-
 /* ── Top nav ── */
 .tnav {
   position: fixed;
