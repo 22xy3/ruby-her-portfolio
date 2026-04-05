@@ -18,9 +18,9 @@
 
       <div class="about-card rv rv-d2">
         <div class="about-text">
-          <p>I am a Hmong-American and first-generation college student at the University of Wisconsin-Madison, pursuing Information Sciences on the pre-business track for Marketing and Management.</p>
+          <p>Hi there! I am a Hmong-American and first-generation college student at the University of Wisconsin-Madison, pursuing Information Sciences on the pre-business track for Marketing and Management.</p>
           <p>My passion for consumer insight and communication began with my experiences in healthcare, which include PATCH (Providers and Teens Communicating for Health) and Medical College of Wisconsin's StEP-UP program. Alongside healthcare, I have cultivated strong business and leadership experience through my positions as Senior Editor &amp; TikTok Support Lead at The Vault, Marketing &amp; PR Outreach Co-Coordinator at Curation Media, and Creative Strategist at Structa Media.</p>
-          <p>As an All-in-Milwaukee, Milwaukee's Finest, and Kelben's Scholar, my long-term goal is to build a career in marketing and communications, where I can combine analytical insight with cultural awareness and creative storytelling.</p>
+          <p>As an All-in-Milwaukee, Milwaukee's Finest, and Kelben's Scholar, my long-term goal is to build a career in marketing and communications, where I can combine analytical insight with cultural awareness and creative storytelling. I am eager to continue learning, growing, and contributing to your wonderful organization!</p>
         </div>
 
         <div class="about-contact">
