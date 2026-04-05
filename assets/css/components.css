@@ -1001,6 +1001,157 @@
 }
 
 /* ═══════════════════════════════════════
+   WRITING — Articles + flyers
+   ═══════════════════════════════════════ */
+.writing-sec {
+  padding: var(--space-sec) var(--space-pad);
+  background: var(--plum);
+  position: relative;
+  overflow: hidden;
+}
+
+.writing-header {
+  max-width: 1100px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.writing-eyebrow {
+  font-family: var(--font-sans);
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: .8rem;
+}
+
+.writing-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* Articles */
+.writing-articles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.writing-article {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.8rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  transition: all .5s var(--ease-out-expo);
+  text-decoration: none;
+}
+
+.writing-article:hover {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(212, 160, 216, .15);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .2);
+}
+
+.writing-article-pub {
+  font-family: var(--font-sans);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.writing-article-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.writing-article-cta {
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--white-muted);
+  margin-top: auto;
+  transition: color .3s ease;
+}
+
+.writing-article:hover .writing-article-cta {
+  color: var(--amber);
+}
+
+/* Flyers */
+.writing-flyers {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.writing-flyer-label {
+  font-family: var(--font-sans);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.writing-flyer-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, .06);
+}
+
+.writing-flyer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.writing-flyer {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .5s var(--ease-out-expo), box-shadow .4s ease;
+}
+
+.writing-flyer:hover {
+  transform: translateY(-4px) rotate(0deg) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .25);
+}
+
+.writing-flyer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.writing-flyer-1 { transform: rotate(-1deg); }
+.writing-flyer-2 { transform: rotate(.5deg); }
+.writing-flyer-3 { transform: rotate(-.7deg); }
+
+@media (max-width: 768px) {
+  .writing-articles { grid-template-columns: 1fr; }
+  .writing-flyer-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .writing-flyer-1, .writing-flyer-2, .writing-flyer-3 { transform: none; }
+}
+
+/* ═══════════════════════════════════════
    LINKEDIN — Scattered overlapping embeds
    ═══════════════════════════════════════ */
 .linkedin-sec {

@@ -17,6 +17,8 @@
     <DiamondDivider />
     <SectionToolkit />
     <DiamondDivider />
+    <SectionWriting />
+    <DiamondDivider />
     <SectionRoots />
     <DiamondDivider />
     <SectionLinkedIn />

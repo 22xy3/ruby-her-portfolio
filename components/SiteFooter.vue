@@ -15,10 +15,6 @@
     </div>
 
     <div class="bf-socials rv rv-d3">
-      <a href="tel:+14145191960" class="bf-social-link">
-        <span class="mask"><span class="line">(414) 519-1960</span><span class="line">(414) 519-1960</span></span>
-      </a>
-      <span class="bf-social-dot">♦</span>
       <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="bf-social-link">
         <span class="mask"><span class="line">LinkedIn</span><span class="line">LinkedIn</span></span>
       </a>
@@ -43,7 +39,7 @@ let lastIdx = -1
 
 const facts = [
   'Ruby advocated at the Wisconsin State Capitol for Hmong history in schools — while still in high school.',
-  'She\'s a first-generation college student pursuing Business Marketing at UW-Madison.',
+  'She\'s a first-generation college student pursuing Information Sciences at UW-Madison.',
   'She develops content strategies for creators with 15M+ combined followers at Structa Media.',
   'Milwaukee\'s Finest Scholar — recognized for academic excellence and community impact.',
   'She speaks Hmong and English.',

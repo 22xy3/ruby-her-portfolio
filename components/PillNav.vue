@@ -17,8 +17,6 @@
       <div class="menu-overlay-footer">
         <div class="menu-overlay-contact">
           <a href="mailto:her.ruby@outlook.com" class="menu-contact-link">her.ruby@outlook.com</a>
-          <span class="menu-divider">♦</span>
-          <a href="tel:+14145191960" class="menu-contact-link">(414) 519-1960</a>
         </div>
         <div class="menu-overlay-socials">
           <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="social-link">
