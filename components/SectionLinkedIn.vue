@@ -8,21 +8,21 @@
     <div class="linkedin-scatter">
       <div class="linkedin-card linkedin-card-1 rv">
         <iframe
-          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7432599109607526401?collapsed=1"
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7432599109607526401"
           height="441" width="504" frameborder="0" allowfullscreen
-          title="LinkedIn post 1" loading="lazy"></iframe>
+          title="LinkedIn post — Cloud Closet announcement" loading="lazy"></iframe>
       </div>
       <div class="linkedin-card linkedin-card-2 rv rv-d1">
         <iframe
-          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7328223979452678144?collapsed=1"
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7328223979452678144"
           height="627" width="504" frameborder="0" allowfullscreen
-          title="LinkedIn post 2" loading="lazy"></iframe>
+          title="LinkedIn post — All-in-Milwaukee Scholars" loading="lazy"></iframe>
       </div>
       <div class="linkedin-card linkedin-card-3 rv rv-d2">
         <iframe
-          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7274450282040737792?collapsed=1"
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7274450282040737792"
           height="551" width="504" frameborder="0" allowfullscreen
-          title="LinkedIn post 3" loading="lazy"></iframe>
+          title="LinkedIn post — Hmong American advocacy" loading="lazy"></iframe>
       </div>
     </div>
   </section>
