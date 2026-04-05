@@ -99,11 +99,9 @@
   color: var(--cream);
   line-height: .7;
   display: block;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: heroIn 1.4s var(--ease-out-expo) .2s forwards;
   white-space: nowrap;
   letter-spacing: -.02em;
+  text-shadow: 0 0 60px rgba(184, 152, 208, .15);
 }
 
 .hero-her {
@@ -116,9 +114,37 @@
   line-height: .85;
   display: block;
   margin-top: .1em;
+}
+
+/* Letter-by-letter animation */
+.ruby-letter,
+.her-letter {
+  display: inline-block;
   opacity: 0;
-  transform: translateY(50px);
-  animation: heroIn 1.4s var(--ease-out-expo) .45s forwards;
+  transform: translateY(80px) rotate(-8deg);
+  animation: letterIn 1.1s var(--ease-out-quart) forwards;
+}
+
+.ruby-letter:nth-child(1) { animation-delay: .2s; }
+.ruby-letter:nth-child(2) { animation-delay: .32s; }
+.ruby-letter:nth-child(3) { animation-delay: .44s; }
+.ruby-letter:nth-child(4) { animation-delay: .56s; }
+.her-letter:nth-child(1) { animation-delay: .75s; }
+.her-letter:nth-child(2) { animation-delay: .85s; }
+.her-letter:nth-child(3) { animation-delay: .95s; }
+
+@keyframes letterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) rotate(-8deg);
+  }
+  60% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 .hero-tag {
@@ -128,7 +154,7 @@
   color: var(--white);
   margin-top: 1.5rem;
   opacity: 0;
-  animation: heroIn 1s ease .75s forwards;
+  animation: heroIn 1s ease 1.2s forwards;
   position: relative;
   z-index: 2;
   letter-spacing: .04em;
@@ -142,85 +168,209 @@
   color: var(--white-muted);
   margin-top: .7rem;
   opacity: 0;
-  animation: heroIn 1s ease .95s forwards;
+  animation: heroIn 1s ease 1.4s forwards;
   position: relative;
   z-index: 2;
 }
 
-/* Hero floating decorative elements */
+/* ── Hi I'm sticker ── */
+.hero-sticker {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%) translateX(-18vw) rotate(-6deg);
+  z-index: 3;
+  background: linear-gradient(135deg, #FFF4C2 0%, #FCE99A 100%);
+  padding: .7rem 1.4rem .9rem;
+  border-radius: .4rem;
+  box-shadow:
+    0 10px 28px rgba(48, 34, 56, .4),
+    0 4px 10px rgba(0, 0, 0, .15);
+  opacity: 0;
+  animation: stickerDrop 1s var(--ease-bounce) 1.6s forwards;
+}
+
+@keyframes stickerDrop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateX(-18vw) translateY(-40px) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(-50%) translateX(-18vw) translateY(4px) rotate(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateX(-18vw) translateY(0) rotate(-6deg);
+  }
+}
+
+.hero-sticker-text {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  color: var(--terra-hero);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-sticker-tape {
+  position: absolute;
+  top: -.55rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 50px;
+  height: 16px;
+  background: linear-gradient(135deg, rgba(216, 200, 228, .9), rgba(184, 152, 208, .85), rgba(216, 200, 228, .9));
+  border-radius: 1px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+
+.hero-sticker-tape::before,
+.hero-sticker-tape::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, .45) 2px,
+    rgba(255, 255, 255, .45) 4px
+  );
+}
+
+.hero-sticker-tape::before { left: 0; }
+.hero-sticker-tape::after { right: 0; }
+
+/* ── Decorative sparkles & hearts ── */
+.hero-deco {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  opacity: 0;
+  animation: decoFadeIn 1s ease forwards, decoFloat 6s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(216, 200, 228, .6);
+}
+
+@keyframes decoFadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes decoFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25% { transform: translate(8px, -12px) rotate(90deg) scale(1.15); }
+  50% { transform: translate(-6px, 8px) rotate(180deg) scale(.95); }
+  75% { transform: translate(4px, -6px) rotate(270deg) scale(1.1); }
+}
+
+.hero-deco-1 {
+  top: 15%;
+  left: 12%;
+  font-size: 1.4rem;
+  color: var(--blush);
+  animation-delay: 1.8s, 2.8s;
+}
+
+.hero-deco-2 {
+  top: 25%;
+  right: 14%;
+  font-size: 1.2rem;
+  color: var(--blush-pink);
+  animation-delay: 2s, 3s;
+}
+
+.hero-deco-3 {
+  bottom: 30%;
+  left: 8%;
+  font-size: 1rem;
+  color: var(--amber);
+  animation-delay: 2.2s, 3.2s;
+}
+
+.hero-deco-4 {
+  bottom: 22%;
+  right: 10%;
+  font-size: 1.3rem;
+  color: var(--blush);
+  animation-delay: 2.4s, 3.4s;
+}
+
+.hero-deco-5 {
+  top: 50%;
+  left: 6%;
+  font-size: .9rem;
+  color: var(--amber);
+  animation-delay: 2.6s, 3.6s;
+}
+
+.hero-deco-6 {
+  top: 40%;
+  right: 6%;
+  font-size: 1.1rem;
+  color: var(--blush-pink);
+  animation-delay: 2.8s, 3.8s;
+}
+
+/* Hero floating labels (refined) */
 .hero-float {
   position: absolute;
   pointer-events: none;
   user-select: none;
-  animation: float 5s ease-in-out infinite;
   z-index: 1;
+  opacity: 0;
+  animation: decoFadeIn 1s ease 2s forwards, float 6s ease-in-out 3s infinite;
 }
 
 .hero-float.f1 {
-  top: 12%; right: 8%;
-  --r: 12deg;
+  top: 14%;
+  right: 10%;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(.7rem, 1vw, .85rem);
+  font-size: clamp(.8rem, 1.1vw, 1rem);
   color: var(--amber);
-  opacity: .4;
-  transform: rotate(12deg);
-  animation-delay: 0s;
+  opacity: 0;
+  --r: 8deg;
+  transform: rotate(8deg);
+  animation-delay: 2s, 3s;
 }
 
 .hero-float.f2 {
-  bottom: 18%; left: 6%;
-  --r: -8deg;
+  bottom: 22%;
+  left: 8%;
   font-family: var(--font-sans);
   font-size: .55rem;
   letter-spacing: .3em;
   text-transform: uppercase;
-  color: rgba(244, 240, 236, .15);
-  transform: rotate(-8deg);
-  animation-delay: 1.5s;
-}
-
-.hero-float.f3 {
-  top: 22%; left: 12%;
-  --r: 0deg;
-  font-size: 1.2rem;
-  color: var(--amber);
-  opacity: .25;
-  animation-delay: 3s;
+  color: var(--blush);
+  opacity: 0;
+  --r: -6deg;
+  transform: rotate(-6deg);
+  animation-delay: 2.3s, 3.3s;
 }
 
 .hero-float.f4 {
-  bottom: 25%; right: 15%;
-  --r: 20deg;
+  bottom: 28%;
+  right: 16%;
   font-family: var(--font-script);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  color: rgba(244, 240, 236, .06);
-  transform: rotate(20deg);
-  animation-delay: 2s;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  color: rgba(216, 200, 228, .18);
+  --r: 16deg;
+  transform: rotate(16deg);
+  animation-delay: 2.6s, 3.6s;
 }
 
-.hero-float.f5 {
-  top: 65%; left: 5%;
-  --r: -15deg;
-  font-size: .7rem;
-  color: var(--amber);
-  opacity: .2;
-  animation-delay: 4s;
-}
-
-/* Hero year watermark */
-.hero-year {
-  position: absolute;
-  bottom: 15%;
-  right: clamp(2rem, 5vw, 4rem);
-  font-family: var(--font-sans);
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
-  color: rgba(244, 240, 236, .03);
-  line-height: 1;
-  z-index: 1;
-  pointer-events: none;
-  user-select: none;
+.hero-float.f6 {
+  top: 60%;
+  right: 8%;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(.75rem, 1vw, .9rem);
+  color: var(--blush-pink);
+  opacity: 0;
+  --r: -12deg;
+  transform: rotate(-12deg);
+  animation-delay: 2.9s, 3.9s;
 }
 
 .hero-scroll {
@@ -1793,6 +1943,32 @@
   }
   .hero-float {
     display: none;
+  }
+  .hero-deco-2,
+  .hero-deco-4,
+  .hero-deco-6 {
+    display: none;
+  }
+  .hero-deco-1 { top: 8%; left: 6%; font-size: 1.1rem; }
+  .hero-deco-3 { bottom: 12%; left: 6%; font-size: .9rem; }
+  .hero-deco-5 { top: 45%; left: 4%; font-size: .8rem; }
+  .hero-sticker {
+    top: 12%;
+    transform: translateX(-50%) translateX(-30vw) rotate(-6deg);
+    padding: .5rem 1rem .6rem;
+  }
+  @keyframes stickerDrop {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateX(-30vw) translateY(-40px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-50%) translateX(-30vw) translateY(4px) rotate(-3deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateX(-30vw) translateY(0) rotate(-6deg);
+    }
   }
 
   /* Tnav — tighter spacing */
