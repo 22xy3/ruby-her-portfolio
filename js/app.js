@@ -11,6 +11,46 @@ import { initTilt } from './tilt.js';
 import { initStackedCards, initLenis } from './stacked-cards.js';
 import { initTextSplit } from './text-effects.js';
 import { initDraggable } from './draggable.js';
+// Fun trivia
+function initTrivia() {
+  const btn = document.getElementById('triviaBtn');
+  const text = document.getElementById('triviaText');
+  if (!btn || !text) return;
+
+  const facts = [
+    "Ruby presented at the Wisconsin State Capitol as a high schooler advocating for Hmong history in schools.",
+    "She's a first-generation college student — the first in her family to attend university.",
+    "Ruby has helped create content reaching over 15 million subscribers at Structa Media.",
+    "She was named Milwaukee's Finest — a recognition for community-rooted young leaders.",
+    "Ruby speaks Hmong and English, bridging cultures through storytelling.",
+    "She attended the NASW-WI 50th Annual Conference as a teen representative.",
+    "Ruby is an All-in-Milwaukee Scholar, 7th Cohort — committed to transforming her city.",
+    "Her path into marketing started as a teen health educator, not in a classroom.",
+    "She studies Information Sciences at UW-Madison.",
+    "Ruby believes the most powerful stories are the ones we were told didn't matter.",
+  ];
+
+  let lastIndex = -1;
+
+  btn.addEventListener('click', () => {
+    let idx;
+    do { idx = Math.floor(Math.random() * facts.length); } while (idx === lastIndex);
+    lastIndex = idx;
+
+    text.style.opacity = '0';
+    setTimeout(() => {
+      text.textContent = facts[idx];
+      text.style.opacity = '1';
+    }, 200);
+  });
+
+  // Show one on load
+  const first = Math.floor(Math.random() * facts.length);
+  lastIndex = first;
+  text.textContent = facts[first];
+  text.style.opacity = '1';
+}
+
 // Scroll progress bar
 function initScrollProgress() {
   const bar = document.getElementById('scrollProgress');
@@ -61,6 +101,7 @@ async function init() {
   initStackedCards();
   initTextSplit();
   initDraggable();
+  initTrivia();
   initScrollProgress();
   initClock();
 }
