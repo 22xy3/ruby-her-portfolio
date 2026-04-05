@@ -531,29 +531,38 @@ body > .page-transition {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .8rem;
-  padding: 1.5rem 0;
+  gap: 1rem;
+  padding: 1.8rem 0;
   background: var(--deep);
 }
 
 .diamond-divider span {
-  font-size: .4rem;
+  font-size: .45rem;
   color: var(--terracotta);
-  opacity: .35;
-  transition: opacity .6s ease, transform .6s var(--ease-out-expo);
+  opacity: .4;
+  transition: opacity .6s ease, transform .6s var(--ease-out-expo), color .6s ease;
+  text-shadow: 0 0 12px rgba(184, 152, 208, .3);
 }
 
 .diamond-divider span:nth-child(2) {
-  font-size: .55rem;
-  opacity: .5;
+  font-size: .65rem;
+  opacity: .6;
+  color: var(--amber);
+  animation: diamondPulse 4s ease-in-out infinite;
+}
+
+@keyframes diamondPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: .6; }
+  50% { transform: scale(1.15) rotate(180deg); opacity: .9; }
 }
 
 .diamond-divider:hover span {
-  opacity: .7;
+  opacity: .8;
+  color: var(--blush);
 }
 
-.diamond-divider:hover span:nth-child(1) { transform: translateX(-4px); }
-.diamond-divider:hover span:nth-child(3) { transform: translateX(4px); }
+.diamond-divider:hover span:nth-child(1) { transform: translateX(-6px); }
+.diamond-divider:hover span:nth-child(3) { transform: translateX(6px); }
 
 /* ═══════════════════════════════════════
    UNDERLINE HOVER — scaleX animation

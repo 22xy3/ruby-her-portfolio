@@ -30,7 +30,7 @@
 .hero-orb-1 {
   width: clamp(300px, 50vw, 600px);
   height: clamp(300px, 50vw, 600px);
-  background: radial-gradient(circle, rgba(155, 111, 160, .25) 0%, rgba(60, 42, 63, .1) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(184, 152, 208, .3) 0%, rgba(143, 112, 174, .12) 50%, transparent 70%);
   top: -10%;
   right: -10%;
   animation-delay: .3s;
@@ -439,14 +439,17 @@
 .card-inner {
   width: 100%;
   padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 -1px 12px rgba(0, 0, 0, .1), 0 4px 24px rgba(0, 0, 0, .08);
+  border-radius: 1.8rem;
+  box-shadow:
+    0 -1px 12px rgba(143, 112, 174, .12),
+    0 12px 36px rgba(48, 34, 56, .18),
+    0 4px 12px rgba(184, 152, 208, .1);
 }
 
 @media (min-width: 1024px) {
   .card-inner {
     padding: 2rem 2.5rem;
-    border-radius: var(--radius-xl);
+    border-radius: 2.2rem;
   }
 }
 
@@ -844,11 +847,18 @@
   gap: .75rem;
 }
 
+.toolkit-label::before {
+  content: '✦';
+  color: var(--amber);
+  font-size: .7rem;
+  opacity: .7;
+}
+
 .toolkit-label::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: rgba(255, 255, 255, .06);
+  background: linear-gradient(to right, rgba(184, 152, 208, .25), rgba(255, 255, 255, .02));
 }
 
 .toolkit-pills {
@@ -870,10 +880,10 @@
 }
 
 .pill:hover {
-  background: rgba(212, 160, 216, .15);
-  border-color: rgba(212, 160, 216, .3);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(212, 160, 216, .1);
+  background: rgba(184, 152, 208, .18);
+  border-color: rgba(184, 152, 208, .35);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(184, 152, 208, .2), 0 0 0 3px rgba(184, 152, 208, .08);
   color: var(--white);
 }
 
@@ -937,18 +947,36 @@
 
 .root-card {
   padding: clamp(1.5rem, 2.5vw, 2.2rem);
-  border-radius: var(--radius-lg);
+  border-radius: 1.5rem;
   background: rgba(255, 255, 255, .03);
   border: 1px solid rgba(255, 255, 255, .05);
   transition: all .5s var(--ease-out-expo);
   position: relative;
+  overflow: hidden;
+}
+
+.root-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(184, 152, 208, .08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .6s ease;
+  pointer-events: none;
 }
 
 .root-card:hover {
-  background: rgba(255, 255, 255, .05);
-  border-color: rgba(212, 160, 216, .15);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(60, 42, 63, .2);
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(184, 152, 208, .2);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(48, 34, 56, .3), 0 4px 12px rgba(184, 152, 208, .12);
+}
+
+.root-card:hover::before {
+  opacity: 1;
 }
 
 .root-card-lg {
@@ -1008,6 +1036,37 @@
   overflow: hidden;
 }
 
+/* Soft lavender glow behind content */
+.writing-sec::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 120%;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(184, 152, 208, .08) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Floating sparkle ornaments */
+.writing-sec::after {
+  content: '✦';
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--blush);
+  opacity: .25;
+  pointer-events: none;
+  animation: floatSparkle 6s ease-in-out infinite;
+}
+
+@keyframes floatSparkle {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: .25; }
+  50% { transform: translateY(-12px) rotate(180deg); opacity: .5; }
+}
+
 .writing-header {
   max-width: 1100px;
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
@@ -1043,20 +1102,40 @@
 .writing-article {
   background: rgba(255, 255, 255, .04);
   border: 1px solid rgba(255, 255, 255, .06);
-  border-radius: var(--radius-xl);
+  border-radius: 1.8rem;
   padding: clamp(1.8rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
   gap: .8rem;
   transition: all .5s var(--ease-out-expo);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.writing-article::before {
+  content: '✦';
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 1rem;
+  color: var(--blush);
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  transition: all .5s var(--ease-out-quart);
+  pointer-events: none;
 }
 
 .writing-article:hover {
   background: rgba(255, 255, 255, .07);
-  border-color: rgba(212, 160, 216, .15);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, .2);
+  border-color: rgba(184, 152, 208, .2);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 56px rgba(48, 34, 56, .3), 0 6px 20px rgba(184, 152, 208, .15);
+}
+
+.writing-article:hover::before {
+  opacity: .7;
+  transform: scale(1) rotate(180deg);
 }
 
 .writing-article-pub {
@@ -1094,10 +1173,10 @@
 }
 
 /* ═══════════════════════════════════════
-   FLYERS — playful scattered grid
+   FLYERS — Polaroid scrapbook grid
    ═══════════════════════════════════════ */
 .flyers-wrap {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: clamp(3rem, 6vw, 5rem) auto 0;
   position: relative;
 }
@@ -1105,102 +1184,142 @@
 .flyers-label {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  color: var(--amber);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  color: var(--blush);
   text-align: center;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .8rem;
+  gap: 1rem;
 }
 
 .flyers-sparkle {
   display: inline-block;
-  color: var(--blush);
-  font-size: .7em;
-  animation: sparkleSpin 4s ease-in-out infinite;
+  color: var(--amber);
+  font-size: .8em;
+  text-shadow: 0 0 20px rgba(216, 200, 228, .5);
+  animation: sparkleSpin 5s ease-in-out infinite;
 }
 
 .flyers-sparkle:last-child {
-  animation-delay: 2s;
+  animation-delay: 2.5s;
 }
 
 @keyframes sparkleSpin {
-  0%, 100% { transform: rotate(0deg) scale(1); opacity: .9; }
-  50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: .8; }
+  50% { transform: rotate(180deg) scale(1.25); opacity: 1; }
 }
 
+/* Scrapbook layout — items sized to natural proportions */
 .flyers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.2rem, 3vw, 2.5rem);
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1.5rem, 3.5vw, 3rem) clamp(1rem, 2.5vw, 2rem);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1rem 0 3rem;
+  padding: 2rem 1rem 4rem;
 }
 
 .flyer-card {
   position: relative;
-  border-radius: var(--radius-xl);
-  overflow: visible;
-  background: var(--white);
-  padding: .7rem .7rem 1.2rem;
+  background: #fffdf9;
+  padding: .9rem .9rem 2.2rem;
+  border-radius: .5rem;
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, .25),
-    0 2px 8px rgba(143, 112, 174, .15),
-    0 0 0 1px rgba(255, 255, 255, .08) inset;
-  transition: transform .6s var(--ease-out-quart), box-shadow .4s ease;
+    0 14px 32px rgba(48, 34, 56, .4),
+    0 4px 12px rgba(143, 112, 174, .25),
+    0 0 0 1px rgba(216, 200, 228, .1) inset;
+  transition: transform .7s var(--ease-out-quart), box-shadow .5s ease;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Each card: natural aspect ratio via different widths */
+.flyer-card-1 {
+  width: clamp(220px, 22vw, 300px);
+  transform: rotate(-5deg) translateY(0);
+  z-index: 2;
+}
+
+.flyer-card-2 {
+  width: clamp(260px, 26vw, 360px);
+  transform: rotate(3deg) translateY(1.5rem);
+  z-index: 3;
+}
+
+.flyer-card-3 {
+  width: clamp(230px, 24vw, 320px);
+  transform: rotate(-2deg) translateY(-.5rem);
+  z-index: 1;
+}
+
+.flyer-inner {
+  overflow: hidden;
+  border-radius: .25rem;
 }
 
 .flyer-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: calc(var(--radius-lg) - .2rem);
-}
-
-/* Scattered rotations — playful Polaroid vibe */
-.flyer-card-1 {
-  transform: rotate(-4deg);
-}
-
-.flyer-card-2 {
-  transform: rotate(2deg) translateY(-1rem);
-}
-
-.flyer-card-3 {
-  transform: rotate(-2deg) translateY(.5rem);
+  height: auto;
+  transition: transform .8s var(--ease-out-quart);
 }
 
 .flyer-card:hover {
-  transform: rotate(0deg) translateY(-8px) scale(1.04) !important;
-  z-index: 5;
+  transform: rotate(0deg) translateY(-10px) scale(1.03) !important;
+  z-index: 10;
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, .35),
-    0 8px 24px rgba(143, 112, 174, .3),
-    0 0 0 1px rgba(255, 255, 255, .15) inset;
+    0 28px 60px rgba(48, 34, 56, .55),
+    0 12px 28px rgba(184, 152, 208, .4),
+    0 0 0 1px rgba(216, 200, 228, .2) inset;
 }
 
-/* Washi tape decoration on top */
+.flyer-card:hover img {
+  transform: scale(1.02);
+}
+
+/* Handwritten caption below each polaroid */
+.flyer-card::after {
+  content: '♥';
+  position: absolute;
+  bottom: .5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .85rem;
+  color: var(--blush-pink);
+  opacity: .5;
+  transition: all .4s ease;
+}
+
+.flyer-card:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.3);
+  color: var(--amber);
+}
+
+/* ── Washi tape — wider, more playful ── */
 .flyer-tape {
   position: absolute;
-  top: -.75rem;
+  top: -.9rem;
   left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 60px;
-  height: 22px;
+  width: 85px;
+  height: 26px;
   background: linear-gradient(
     135deg,
-    rgba(216, 200, 228, .9) 0%,
-    rgba(184, 152, 208, .85) 50%,
-    rgba(216, 200, 228, .9) 100%
+    rgba(216, 200, 228, .92) 0%,
+    rgba(184, 152, 208, .88) 40%,
+    rgba(201, 160, 208, .9) 70%,
+    rgba(216, 200, 228, .92) 100%
   );
-  border-radius: 2px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  border-radius: 1px;
+  box-shadow:
+    0 3px 10px rgba(48, 34, 56, .25),
+    0 1px 2px rgba(0, 0, 0, .1);
   pointer-events: none;
+  transform: translateX(-50%) rotate(-4deg);
 }
 
 .flyer-tape::before,
@@ -1209,42 +1328,56 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 4px;
+  width: 6px;
   background: repeating-linear-gradient(
     45deg,
     transparent 0,
     transparent 2px,
-    rgba(255, 255, 255, .4) 2px,
-    rgba(255, 255, 255, .4) 4px
+    rgba(255, 255, 255, .5) 2px,
+    rgba(255, 255, 255, .5) 4px
   );
 }
 
-.flyer-tape::before { left: 0; }
-.flyer-tape::after { right: 0; }
+.flyer-tape::before {
+  left: 0;
+  border-radius: 1px 0 0 1px;
+}
 
-/* Each card gets a slightly different tape color */
+.flyer-tape::after {
+  right: 0;
+  border-radius: 0 1px 1px 0;
+}
+
+/* Unique tape colors & angles per card */
 .flyer-card-1 .flyer-tape {
-  background: linear-gradient(135deg, rgba(224, 208, 228, .9), rgba(201, 160, 208, .85), rgba(224, 208, 228, .9));
+  background: linear-gradient(135deg, rgba(224, 208, 228, .92), rgba(201, 160, 208, .88), rgba(224, 208, 228, .92));
+  transform: translateX(-50%) rotate(-6deg);
 }
+
 .flyer-card-2 .flyer-tape {
-  background: linear-gradient(135deg, rgba(212, 160, 216, .85), rgba(184, 152, 208, .9), rgba(212, 160, 216, .85));
-  transform: translateX(-50%) rotate(4deg);
+  background: linear-gradient(135deg, rgba(216, 200, 228, .92), rgba(184, 152, 208, .9), rgba(216, 200, 228, .92));
+  transform: translateX(-50%) rotate(5deg);
+  width: 95px;
 }
+
 .flyer-card-3 .flyer-tape {
-  background: linear-gradient(135deg, rgba(216, 200, 228, .9), rgba(159, 128, 174, .85), rgba(216, 200, 228, .9));
-  transform: translateX(-50%) rotate(-5deg);
+  background: linear-gradient(135deg, rgba(212, 160, 216, .9), rgba(143, 112, 174, .85), rgba(212, 160, 216, .9));
+  transform: translateX(-50%) rotate(-3deg);
+  width: 80px;
 }
 
 @media (max-width: 900px) {
   .flyers-grid {
-    grid-template-columns: 1fr;
-    max-width: 340px;
-    gap: 2.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem .5rem 3rem;
   }
   .flyer-card-1,
   .flyer-card-2,
   .flyer-card-3 {
-    transform: rotate(-2deg);
+    width: min(85%, 320px);
+    transform: rotate(-2deg) translateY(0);
   }
   .flyer-card-2 { transform: rotate(2deg); }
   .flyer-card-3 { transform: rotate(-1deg); }
