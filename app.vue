@@ -18,6 +18,8 @@
     <SectionToolkit />
     <DiamondDivider />
     <SectionRoots />
+    <DiamondDivider />
+    <SectionLinkedIn />
     <SiteFooter />
   </div>
 </template>
