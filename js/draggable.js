@@ -53,12 +53,12 @@ export function initDraggable() {
   // Drop all blobs — they start at CSS position and fall
   function dropAll() {
     measure();
-    // Give each a tiny random horizontal nudge so they spread
+    // Give each a random nudge so they spread when falling
     blobs.forEach((b, i) => {
       b.x = 0;
       b.y = 0;
-      b.vx = (Math.random() - 0.5) * 100;
-      b.vy = 0;
+      b.vx = (Math.random() - 0.5) * 200;
+      b.vy = 50;
       setPos(b);
     });
     startSim();

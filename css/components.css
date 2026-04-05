@@ -1008,7 +1008,7 @@
   height: 200px;
   max-width: 600px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   background: rgba(0, 0, 0, .015);
 }
 
@@ -1038,7 +1038,7 @@
 
 .bf-blob span {
   font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-size: .85rem;
   font-weight: 700;
   letter-spacing: -.01em;
   white-space: nowrap;
@@ -1047,48 +1047,48 @@
 
 /* All blobs start piled at the bottom center */
 .bf-blob-1 {
-  width: 180px;
-  height: 65px;
+  width: 150px;
+  height: 55px;
   background: linear-gradient(145deg, #F0E8D0, #E4D8B8);
   color: #4A4030;
-  top: 20px;
-  left: 30px;
+  top: 5px;
+  left: 20px;
   z-index: 4;
 }
 
 .bf-blob-2 {
-  width: 200px;
-  height: 65px;
+  width: 170px;
+  height: 55px;
   background: linear-gradient(145deg, #D0E8E8, #B8D8D8);
   color: #183838;
-  top: 20px;
-  left: 140px;
+  top: 5px;
+  left: 180px;
   z-index: 3;
 }
 
 .bf-blob-3 {
-  width: 160px;
-  height: 60px;
+  width: 140px;
+  height: 50px;
   background: linear-gradient(145deg, #F0D5E0, #E4C0D0);
   color: #3A1828;
-  top: 20px;
-  left: 250px;
+  top: 5px;
+  left: 360px;
   z-index: 2;
 }
 
 .bf-blob-4 {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: linear-gradient(145deg, #4A2E50, #3C2040);
   color: var(--cream);
-  top: 20px;
-  left: 370px;
+  top: 5px;
+  left: 510px;
   z-index: 5;
   border-radius: 50%;
 }
 
 .bf-blob-4 span {
-  font-size: 1.1rem;
+  font-size: .85rem;
 }
 
 /* ── Trivia widget ── */
