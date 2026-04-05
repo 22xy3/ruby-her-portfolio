@@ -1382,7 +1382,7 @@
 
 /* Handwritten caption below each polaroid */
 .flyer-card::after {
-  content: '♥';
+  content: '♡';
   position: absolute;
   bottom: .5rem;
   left: 50%;

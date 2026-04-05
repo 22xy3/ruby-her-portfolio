@@ -7,7 +7,7 @@
 
     <!-- Just a few subtle decorations -->
     <span class="hero-deco hero-deco-1" aria-hidden="true">✦</span>
-    <span class="hero-deco hero-deco-2" aria-hidden="true">♥</span>
+    <span class="hero-deco hero-deco-2" aria-hidden="true">♡</span>
     <span class="hero-deco hero-deco-3" aria-hidden="true">✧</span>
 
     <!-- "hi, I'm" sticky note -->
@@ -48,7 +48,7 @@
           See the work <span class="cta-arrow">↓</span>
         </a>
         <a href="#contact" class="hero-cta hero-cta-secondary magnetic" data-strength="0.15" @click.prevent="scrollTo('contact')">
-          Say hi <span class="cta-heart">♥</span>
+          Say hi <span class="cta-heart">♡</span>
         </a>
       </div>
     </div>
@@ -58,11 +58,11 @@
       <div class="hero-marquee-inner">
         <template v-for="n in 2" :key="n">
           <span>creative strategy</span><span class="marquee-dot">✦</span>
-          <span>brand storytelling</span><span class="marquee-dot">♥</span>
+          <span>brand storytelling</span><span class="marquee-dot">♡</span>
           <span>first-gen, forever forward</span><span class="marquee-dot">✦</span>
-          <span>Hmong-American</span><span class="marquee-dot">♥</span>
+          <span>Hmong-American</span><span class="marquee-dot">♡</span>
           <span>marketing meets culture</span><span class="marquee-dot">✦</span>
-          <span>strategy with heart</span><span class="marquee-dot">♥</span>
+          <span>strategy with heart</span><span class="marquee-dot">♡</span>
         </template>
       </div>
     </div>

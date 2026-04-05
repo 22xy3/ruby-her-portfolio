@@ -8,7 +8,7 @@
 
     <div class="linkedin-board">
       <!-- Decorative floating elements -->
-      <span class="li-doodle li-doodle-1" aria-hidden="true">♥</span>
+      <span class="li-doodle li-doodle-1" aria-hidden="true">♡</span>
       <span class="li-doodle li-doodle-2" aria-hidden="true">✦</span>
       <span class="li-doodle li-doodle-3" aria-hidden="true">♡</span>
 
@@ -36,7 +36,7 @@ const posts = [
     id: '7432599109607526401',
     title: 'LinkedIn post — Cloud Closet announcement',
     height: 441,
-    caption: 'so excited ♥',
+    caption: 'so excited ♡',
   },
   {
     id: '7328223979452678144',
