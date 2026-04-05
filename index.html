@@ -30,6 +30,9 @@
   <span class="loader-sub">Creative Strategist</span>
 </div>
 
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- CURSOR -->
 <div class="cur" id="cur" aria-hidden="true"></div>
 <div class="cur-r" id="curR" aria-hidden="true"></div>
@@ -431,17 +434,22 @@
     Let's work <em>together!</em>
   </h2>
 
-  <!-- Floating pill blobs -->
-  <div class="bf-blobs" aria-hidden="true">
-    <a href="mailto:hello@rubyher.com" class="bf-blob bf-blob-1">
-      <span>Say hi!</span>
-    </a>
-    <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="bf-blob bf-blob-2">
-      <span>Reach out</span>
-    </a>
-    <a href="mailto:hello@rubyher.com?subject=Collaboration" class="bf-blob bf-blob-3">
-      <span>Connect</span>
-    </a>
+  <p class="bf-drag-hint rv rv-d2">drag the buttons around ↓</p>
+
+  <!-- Floating pill blobs — draggable -->
+  <div class="bf-blobs">
+    <div class="bf-blob bf-blob-1" data-rotation="-12">
+      <a href="mailto:hello@rubyher.com"><span>Say hi!</span></a>
+    </div>
+    <div class="bf-blob bf-blob-2" data-rotation="3">
+      <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer"><span>Reach out</span></a>
+    </div>
+    <div class="bf-blob bf-blob-3" data-rotation="8">
+      <a href="mailto:hello@rubyher.com?subject=Let's collaborate"><span>Collab</span></a>
+    </div>
+    <div class="bf-blob bf-blob-4" data-rotation="-5">
+      <a href="mailto:hello@rubyher.com?subject=Hello!"><span>✦</span></a>
+    </div>
   </div>
 
   <!-- Bottom bar -->
@@ -449,7 +457,7 @@
     <span>&copy;2026 Ruby Her</span>
     <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="mailto:hello@rubyher.com">Email</a>
-    <span>Made with intention</span>
+    <span>Made with intention ✦</span>
   </div>
 </footer>
 

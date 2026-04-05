@@ -214,13 +214,18 @@ img {
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 1.5px;
   background: var(--amber);
-  transition: width .3s var(--ease-out-expo);
+  transition: width .4s var(--ease-out-expo);
 }
 
 .tnav-links a:hover::after {
   width: 100%;
+}
+
+.tnav-links a:hover {
+  transform: translateY(-1px);
+  transition: color .3s ease, transform .3s var(--ease-out-expo);
 }
 
 .tnav.solid .tnav-links a { color: var(--white-soft); }
@@ -294,4 +299,16 @@ img {
   .ham { display: flex; }
 }
 
-/* old footer removed — replaced by .big-footer in components */
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--terracotta), var(--amber));
+  z-index: 10002;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+  pointer-events: none;
+}
