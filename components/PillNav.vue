@@ -16,13 +16,16 @@
       </nav>
       <div class="menu-overlay-footer">
         <div class="menu-overlay-contact">
-          <a href="mailto:hello@rubyher.com" class="menu-contact-link">hello@rubyher.com</a>
+          <a href="mailto:her.ruby@outlook.com" class="menu-contact-link">her.ruby@outlook.com</a>
           <span class="menu-divider">♦</span>
-          <span class="menu-location">Madison, WI</span>
+          <a href="tel:+14145191960" class="menu-contact-link">(414) 519-1960</a>
         </div>
         <div class="menu-overlay-socials">
-          <a v-for="s in socials" :key="s.label" :href="s.href" target="_blank" rel="noopener noreferrer" class="social-link">
-            <span class="mask"><span class="line">{{ s.label }}</span><span class="line">{{ s.label }}</span></span>
+          <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span class="mask"><span class="line">LinkedIn</span><span class="line">LinkedIn</span></span>
+          </a>
+          <a href="mailto:her.ruby@outlook.com" class="social-link">
+            <span class="mask"><span class="line">Email</span><span class="line">Email</span></span>
           </a>
         </div>
       </div>
@@ -42,13 +45,6 @@ const navLinks = [
   { id: 'skills', label: 'Toolkit' },
   { id: 'advocacy', label: 'Advocacy' },
   { id: 'contact', label: 'Contact' },
-]
-
-const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/rubyherr' },
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'YouTube', href: 'https://youtube.com' },
-  { label: 'X', href: 'https://x.com' },
 ]
 
 const sections = [

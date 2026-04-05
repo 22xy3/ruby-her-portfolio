@@ -1,8 +1,8 @@
 <template>
   <section class="roots-sec" id="advocacy">
     <div class="roots-header rv">
-      <p class="roots-eyebrow">Where I come from</p>
-      <h2 class="roots-title" data-split>The roots run deep.</h2>
+      <p class="roots-eyebrow">Beyond the resume</p>
+      <h2 class="roots-title" data-split>Before the title, there was this.</h2>
     </div>
 
     <div class="roots-grid">
@@ -21,23 +21,23 @@
 const cards = [
   {
     emoji: '🏛',
-    title: 'Presented at the Wisconsin State Capitol',
-    desc: 'Advocated for Act 266 on behalf of Hmong-American students — legislation for authentic representation of Hmong history and culture in Wisconsin schools. She was still in high school.',
+    title: 'Wisconsin State Capitol',
+    desc: 'Advocated for Act 266 on behalf of Hmong-American students — legislation for Hmong history and culture in Wisconsin schools. Still in high school at the time.',
   },
   {
     emoji: '🩺',
-    title: 'Teen Health Educator',
-    desc: "Wisconsin PATCH. Attended the NASW-WI 50th Annual Conference as a teen representative — bringing youth voices into rooms where policy was made.",
+    title: 'PATCH & StEP-UP',
+    desc: 'Providers and Teens Communicating for Health. Medical College of Wisconsin StEP-UP program. Teen representative at the NASW-WI 50th Annual Conference.',
   },
   {
     emoji: '🎓',
     title: 'All-in-Milwaukee Scholar',
-    desc: '7th Cohort. A community of high-achieving scholars committed to completing college, building careers, and transforming Milwaukee.',
+    desc: '7th Cohort. High-achieving scholars committed to completing college, building careers, and investing back into Milwaukee.',
   },
   {
     emoji: '✦',
     title: "Milwaukee's Finest & Kelben Scholar",
-    desc: 'Recognized for making a difference. Community-rooted, forward-looking, always building for those who come next.',
+    desc: 'Merit-based recognition for academic performance and community impact. Bucky Pathway Scholar at UW-Madison.',
   },
 ]
 </script>

@@ -6,7 +6,7 @@
     </div>
 
     <h2 class="bf-heading rv">
-      Let's work <em>together!</em>
+      Let's work <em>together.</em>
     </h2>
 
     <div class="bf-trivia rv rv-d2">
@@ -15,17 +15,22 @@
     </div>
 
     <div class="bf-socials rv rv-d3">
-      <template v-for="(s, i) in socials" :key="s.label">
-        <span v-if="i > 0" class="bf-social-dot">♦</span>
-        <a :href="s.href" target="_blank" rel="noopener noreferrer" class="bf-social-link">
-          <span class="mask"><span class="line">{{ s.label }}</span><span class="line">{{ s.label }}</span></span>
-        </a>
-      </template>
+      <a href="tel:+14145191960" class="bf-social-link">
+        <span class="mask"><span class="line">(414) 519-1960</span><span class="line">(414) 519-1960</span></span>
+      </a>
+      <span class="bf-social-dot">♦</span>
+      <a href="https://linkedin.com/in/rubyherr" target="_blank" rel="noopener noreferrer" class="bf-social-link">
+        <span class="mask"><span class="line">LinkedIn</span><span class="line">LinkedIn</span></span>
+      </a>
+      <span class="bf-social-dot">♦</span>
+      <a href="mailto:her.ruby@outlook.com" class="bf-social-link">
+        <span class="mask"><span class="line">her.ruby@outlook.com</span><span class="line">her.ruby@outlook.com</span></span>
+      </a>
     </div>
 
     <div class="bf-bottom">
       <span>&copy;2026 Ruby Her</span>
-      <a href="mailto:hello@rubyher.com">Email</a>
+      <a href="mailto:her.ruby@outlook.com">Email</a>
       <span>Made with intention ✦</span>
     </div>
   </footer>
@@ -38,23 +43,16 @@ const factVisible = ref(true)
 let lastIdx = -1
 
 const facts = [
-  'Ruby presented at the Wisconsin State Capitol as a high schooler advocating for Hmong history in schools.',
-  "She's a first-generation college student — the first in her family to attend university.",
-  'Ruby has helped create content reaching over 15 million subscribers at Structa Media.',
-  "She was named Milwaukee's Finest — a recognition for community-rooted young leaders.",
-  'Ruby speaks Hmong and English, bridging cultures through storytelling.',
-  'She attended the NASW-WI 50th Annual Conference as a teen representative.',
-  'Ruby is an All-in-Milwaukee Scholar, 7th Cohort — committed to transforming her city.',
-  'Her path into marketing started as a teen health educator, not in a classroom.',
-  'She studies Information Sciences at UW-Madison.',
-  "Ruby believes the most powerful stories are the ones we were told didn't matter.",
-]
-
-const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/rubyherr' },
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'YouTube', href: 'https://youtube.com' },
-  { label: 'X', href: 'https://x.com' },
+  'Ruby advocated at the Wisconsin State Capitol for Hmong history in schools — while still in high school.',
+  'She\'s a first-generation college student pursuing Business Marketing at UW-Madison.',
+  'She develops content strategies for creators with 15M+ combined followers at Structa Media.',
+  'Milwaukee\'s Finest Scholar — recognized for academic excellence and community impact.',
+  'She speaks Hmong and English.',
+  'Teen representative at the NASW-WI 50th Annual Conference.',
+  'All-in-Milwaukee Scholar, 7th Cohort.',
+  'Her marketing career started in healthcare — PATCH and Medical College of Wisconsin\'s StEP-UP program.',
+  'Bucky Pathway Scholar at UW-Madison.',
+  'She writes conversion-focused scripts for digital creators at Structa Media in Atlanta.',
 ]
 
 function nextFact() {

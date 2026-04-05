@@ -20,6 +20,13 @@
             <span v-for="s in human" :key="s" class="pill pill-warm">{{ s }}</span>
           </div>
         </div>
+
+        <div class="toolkit-group rv rv-d3">
+          <h3 class="toolkit-label">The Tools</h3>
+          <div class="toolkit-pills stagger-children">
+            <span v-for="s in tools" :key="s" class="pill">{{ s }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -27,11 +34,16 @@
 
 <script setup lang="ts">
 const craft = [
-  'Marketing Strategy', 'PR & Outreach', 'Creative Strategy', 'Copywriting',
-  'TikTok Content', 'Editorial Editing', 'Brand Storytelling', 'Consumer Research', 'Data Management',
+  'Marketing Strategy', 'PR & Outreach', 'Creative Strategy', 'Scriptwriting',
+  'Social Media Strategy', 'Editorial Editing', 'Brand Storytelling', 'Consumer Research',
+  'Data Analysis', 'Creative Writing',
 ]
 const human = [
-  'Cross-cultural Communication', 'Bilingual (Hmong + English)', 'Collaboration',
+  'Hmong & English', 'Cross-cultural Communication', 'Collaboration',
   'Advocacy', 'Storytelling', 'Research Synthesis', 'Community Building',
+]
+const tools = [
+  'Microsoft Office', 'Canva', 'CapCut', 'Notion',
+  'Google Workspace',
 ]
 </script>
