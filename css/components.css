@@ -1003,19 +1003,24 @@
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
-  transition: box-shadow .3s ease, filter .3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
 }
 
+/* Lifted — picked up off the surface */
 .bf-blob.dragging {
   cursor: grabbing;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, .15);
-  filter: brightness(1.03);
-  z-index: 10 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .18), 0 8px 20px rgba(0, 0, 0, .1);
+  filter: brightness(1.04);
 }
 
-.bf-blob:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+/* Dropping — settling bounce */
+.bf-blob.dropping {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+}
+
+.bf-blob:hover:not(.dragging):not(.dropping) {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+  cursor: grab;
 }
 
 .bf-blob a {

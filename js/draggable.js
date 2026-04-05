@@ -1,103 +1,161 @@
 /* ═══════════════════════════════════════════════════════
-   DRAGGABLE — Physics-based drag for footer blobs
-   Spring-back with momentum and boundary constraints
+   DRAGGABLE — Pick up and drop in a container
+   Blobs stay where you drop them. No spring-back.
    ═══════════════════════════════════════════════════════ */
 
 export function initDraggable() {
+  const container = document.querySelector('.bf-blobs');
   const blobs = document.querySelectorAll('.bf-blob');
-  if (!blobs.length) return;
+  if (!blobs.length || !container) return;
 
   blobs.forEach((blob) => {
     let isDragging = false;
-    let startX, startY, currentX = 0, currentY = 0;
-    let velocityX = 0, velocityY = 0;
-    let lastX, lastY, lastTime;
-    let animFrame;
-
-    // Store initial transform for combining with drag
+    let offsetX, offsetY;
+    let currentX = 0, currentY = 0;
     const initialRotation = blob.dataset.rotation || '0';
 
-    function onPointerDown(e) {
-      isDragging = true;
+    // Lift effect
+    function lift() {
       blob.classList.add('dragging');
-      startX = (e.clientX || e.touches?.[0]?.clientX) - currentX;
-      startY = (e.clientY || e.touches?.[0]?.clientY) - currentY;
-      lastX = e.clientX || e.touches?.[0]?.clientX;
-      lastY = e.clientY || e.touches?.[0]?.clientY;
-      lastTime = Date.now();
-      cancelAnimationFrame(animFrame);
+      blob.style.zIndex = 20;
+      blob.style.transition = 'box-shadow .2s ease, filter .2s ease';
+    }
+
+    // Drop effect — settles with a bounce
+    function drop() {
+      blob.classList.remove('dragging');
+      blob.classList.add('dropping');
+      blob.style.zIndex = '';
+      blob.style.transition = 'transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, filter .3s ease';
+
+      // Small settle bounce: nudge down 4px then back
+      const dropX = currentX;
+      const dropY = currentY;
+      blob.style.transform = `translate(${dropX}px, ${dropY + 6}px) rotate(${initialRotation}deg) scale(0.98)`;
+
+      setTimeout(() => {
+        blob.style.transform = `translate(${dropX}px, ${dropY}px) rotate(${initialRotation}deg) scale(1)`;
+      }, 150);
+
+      setTimeout(() => {
+        blob.classList.remove('dropping');
+        blob.style.transition = '';
+      }, 500);
+    }
+
+    // Clamp position inside container
+    function clamp(val, min, max) {
+      return Math.max(min, Math.min(max, val));
+    }
+
+    function getContainerBounds() {
+      return container.getBoundingClientRect();
+    }
+
+    function getBlobSize() {
+      return blob.getBoundingClientRect();
+    }
+
+    // --- MOUSE ---
+    blob.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const blobRect = getBlobSize();
+      offsetX = e.clientX - blobRect.left - blobRect.width / 2;
+      offsetY = e.clientY - blobRect.top - blobRect.height / 2;
+
+      // Calculate current translate from center of blob's original position
+      const containerRect = getContainerBounds();
+      const blobOrigLeft = blob.offsetLeft;
+      const blobOrigTop = blob.offsetTop;
+
+      offsetX = e.clientX - (containerRect.left + blobOrigLeft + blobRect.width / 2) - currentX;
+      offsetY = e.clientY - (containerRect.top + blobOrigTop + blobRect.height / 2) - currentY;
+
+      lift();
       e.preventDefault();
-    }
+    });
 
-    function onPointerMove(e) {
+    window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
-      const x = (e.clientX || e.touches?.[0]?.clientX);
-      const y = (e.clientY || e.touches?.[0]?.clientY);
 
-      currentX = x - startX;
-      currentY = y - startY;
+      const containerRect = getContainerBounds();
+      const blobRect = getBlobSize();
+      const blobOrigLeft = blob.offsetLeft;
+      const blobOrigTop = blob.offsetTop;
 
-      // Track velocity
-      const now = Date.now();
-      const dt = now - lastTime;
-      if (dt > 0) {
-        velocityX = (x - lastX) / dt * 12;
-        velocityY = (y - lastY) / dt * 12;
-      }
-      lastX = x;
-      lastY = y;
-      lastTime = now;
+      // Target position relative to blob's original position
+      let newX = e.clientX - containerRect.left - blobOrigLeft - blobRect.width / 2 - offsetX;
+      let newY = e.clientY - containerRect.top - blobOrigTop - blobRect.height / 2 - offsetY;
 
-      blob.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${initialRotation}deg)`;
-    }
+      // Clamp within container bounds
+      const maxX = containerRect.width - blobOrigLeft - blobRect.width;
+      const minX = -blobOrigLeft;
+      const maxY = containerRect.height - blobOrigTop - blobRect.height;
+      const minY = -blobOrigTop;
 
-    function onPointerUp() {
+      newX = clamp(newX, minX, maxX);
+      newY = clamp(newY, minY, maxY);
+
+      currentX = newX;
+      currentY = newY;
+
+      blob.style.transition = 'none';
+      blob.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${initialRotation}deg) scale(1.05)`;
+    });
+
+    window.addEventListener('mouseup', () => {
       if (!isDragging) return;
       isDragging = false;
-      blob.classList.remove('dragging');
+      drop();
+    });
 
-      // Apply momentum then spring back
-      const friction = 0.92;
-      const springStrength = 0.06;
+    // --- TOUCH ---
+    blob.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      const touch = e.touches[0];
+      const containerRect = getContainerBounds();
+      const blobRect = getBlobSize();
+      const blobOrigLeft = blob.offsetLeft;
+      const blobOrigTop = blob.offsetTop;
 
-      function animate() {
-        // Apply friction to velocity
-        velocityX *= friction;
-        velocityY *= friction;
+      offsetX = touch.clientX - (containerRect.left + blobOrigLeft + blobRect.width / 2) - currentX;
+      offsetY = touch.clientY - (containerRect.top + blobOrigTop + blobRect.height / 2) - currentY;
 
-        // Spring back toward origin
-        const springX = -currentX * springStrength;
-        const springY = -currentY * springStrength;
-        velocityX += springX;
-        velocityY += springY;
+      lift();
+      e.preventDefault();
+    }, { passive: false });
 
-        currentX += velocityX;
-        currentY += velocityY;
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      const containerRect = getContainerBounds();
+      const blobRect = getBlobSize();
+      const blobOrigLeft = blob.offsetLeft;
+      const blobOrigTop = blob.offsetTop;
 
-        blob.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${initialRotation}deg)`;
+      let newX = touch.clientX - containerRect.left - blobOrigLeft - blobRect.width / 2 - offsetX;
+      let newY = touch.clientY - containerRect.top - blobOrigTop - blobRect.height / 2 - offsetY;
 
-        // Stop when close enough
-        if (Math.abs(velocityX) > 0.1 || Math.abs(velocityY) > 0.1 ||
-            Math.abs(currentX) > 0.5 || Math.abs(currentY) > 0.5) {
-          animFrame = requestAnimationFrame(animate);
-        } else {
-          currentX = 0;
-          currentY = 0;
-          blob.style.transform = `rotate(${initialRotation}deg)`;
-        }
-      }
+      const maxX = containerRect.width - blobOrigLeft - blobRect.width;
+      const minX = -blobOrigLeft;
+      const maxY = containerRect.height - blobOrigTop - blobRect.height;
+      const minY = -blobOrigTop;
 
-      animFrame = requestAnimationFrame(animate);
-    }
+      newX = clamp(newX, minX, maxX);
+      newY = clamp(newY, minY, maxY);
 
-    // Mouse events
-    blob.addEventListener('mousedown', onPointerDown);
-    window.addEventListener('mousemove', onPointerMove);
-    window.addEventListener('mouseup', onPointerUp);
+      currentX = newX;
+      currentY = newY;
 
-    // Touch events
-    blob.addEventListener('touchstart', onPointerDown, { passive: false });
-    window.addEventListener('touchmove', onPointerMove, { passive: false });
-    window.addEventListener('touchend', onPointerUp);
+      blob.style.transition = 'none';
+      blob.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${initialRotation}deg) scale(1.05)`;
+      e.preventDefault();
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      drop();
+    });
   });
 }
