@@ -21,8 +21,10 @@
       <div class="flyers-grid">
         <div v-for="(flyer, i) in flyers" :key="flyer.alt"
           class="flyer-card" :class="`flyer-card-${i + 1}`">
-          <img :src="flyer.src" :alt="flyer.alt" loading="lazy">
-          <span class="flyer-tape flyer-tape-top"></span>
+          <div class="flyer-inner">
+            <img :src="flyer.src" :alt="flyer.alt" loading="lazy">
+          </div>
+          <span class="flyer-tape"></span>
         </div>
       </div>
     </div>
