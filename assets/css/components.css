@@ -996,6 +996,144 @@
 }
 
 /* ═══════════════════════════════════════
+   LINKEDIN — Scattered overlapping embeds
+   ═══════════════════════════════════════ */
+.linkedin-sec {
+  padding: var(--space-sec) var(--space-pad);
+  padding-bottom: clamp(6rem, 12vw, 10rem);
+  background: var(--terra-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.linkedin-sec::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(155, 111, 160, .08) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.linkedin-header {
+  max-width: 1100px;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.linkedin-eyebrow {
+  font-family: var(--font-sans);
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: .8rem;
+}
+
+.linkedin-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* Scattered layout */
+.linkedin-scatter {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 650px;
+  z-index: 2;
+}
+
+.linkedin-card {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .3), 0 0 0 1px rgba(255, 255, 255, .04) inset;
+  transition: transform .6s var(--ease-out-quart), box-shadow .4s ease;
+  max-width: 504px;
+  background: #fff;
+}
+
+.linkedin-card:hover {
+  z-index: 10;
+  transform: rotate(0deg) scale(1.02) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .4), 0 0 0 1px rgba(212, 160, 216, .15) inset;
+}
+
+.linkedin-card iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Card positions — scattered, overlapping */
+.linkedin-card-1 {
+  top: 0;
+  left: 0;
+  transform: rotate(-2.5deg);
+  z-index: 3;
+}
+
+.linkedin-card-2 {
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1.5deg);
+  z-index: 2;
+}
+
+.linkedin-card-3 {
+  top: 100px;
+  right: 0;
+  transform: rotate(-1deg);
+  z-index: 1;
+}
+
+/* Responsive — stack on mobile */
+@media (max-width: 1024px) {
+  .linkedin-scatter {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .linkedin-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .linkedin-card-1 { transform: rotate(-1.5deg); }
+  .linkedin-card-2 { transform: rotate(1deg); }
+  .linkedin-card-3 { transform: rotate(-0.5deg); }
+
+  .linkedin-card iframe {
+    width: 100%;
+    max-width: 504px;
+  }
+}
+
+@media (max-width: 600px) {
+  .linkedin-card-1,
+  .linkedin-card-2,
+  .linkedin-card-3 {
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════
    BIG FOOTER — Let's work together
    ═══════════════════════════════════════ */
 .big-footer {
