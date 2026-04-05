@@ -8,23 +8,26 @@
   --cream:        #F4F0EC;
   --cream-warm:   #FAF9F5;
   --charcoal:     #1A1A1A;
-  --deep:         #1F150B;
-  --terracotta:   #7B5580;
+  --deep:         #0D0A0E;
+  --terracotta:   #9B6FA0;
   --terra-hero:   #3C2A3F;
-  --amber:        #F5851F;
-  --blush:        #E8C4B4;
-  --blush-pink:   #F2A0B0;
+  --amber:        #D4A0D8;
+  --blush:        #E0D0E4;
+  --blush-pink:   #C9A0D0;
   --rose:         #9B6FA0;
-  --plum:         #2D1B2E;
-  --navy:         #1E2040;
-  --sage:         #3A4A3A;
+  --plum:         #1E1220;
+  --navy:         #16101A;
+  --sage:         #2A1F2E;
   --wine:         #4A2847;
-  --gray-light:   #C8C3BA;
-  --gray-faint:   #E5E0D8;
+  --gray-light:   #A89CAC;
+  --gray-faint:   #3A2E3E;
+  --white:        #FFFFFF;
+  --white-soft:   rgba(255, 255, 255, .85);
+  --white-muted:  rgba(255, 255, 255, .5);
 
   /* ── Typography ── */
-  --font-script:  'Pinyon Script', cursive;
-  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-script:  'Great Vibes', cursive;
+  --font-serif:   'Playfair Display', Georgia, serif;
   --font-sans:    'Space Grotesk', 'Helvetica Neue', sans-serif;
 
   /* ── Spacing scale ── */
