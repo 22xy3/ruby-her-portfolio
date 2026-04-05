@@ -780,13 +780,11 @@
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; }
-  .about-photo { max-width: 400px; }
-}
-
-@media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; }
   .about-photo-wrap { position: relative; top: auto; }
-  .about-photo { max-width: 400px; }
+  .about-photo { max-width: 400px; margin: 0 auto; }
+  .about-contact { justify-content: flex-start; gap: .75rem; }
+  .about-big-text { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+  .stats-row { gap: 1.5rem; flex-wrap: wrap; }
 }
 
 /* ═══════════════════════════════════════
@@ -1390,4 +1388,133 @@
 
 @media (max-width: 768px) {
   .bf-bottom { justify-content: center; text-align: center; }
+  .bf-socials { flex-wrap: wrap; gap: .75rem; }
+  .bf-heading { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL MOBILE FIXES
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Hero — keep huge name from breaking layout */
+  .hero-ruby {
+    font-size: clamp(5rem, 28vw, 10rem);
+  }
+  .hero-her {
+    font-size: clamp(2rem, 9vw, 4rem);
+  }
+  .hero-tag {
+    font-size: clamp(.9rem, 3.5vw, 1.1rem);
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .hero-desc {
+    font-size: clamp(.55rem, 2.2vw, .7rem);
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .hero-year {
+    font-size: clamp(4rem, 14vw, 7rem);
+    bottom: 12%;
+  }
+  .hero-float {
+    display: none;
+  }
+
+  /* Tnav — tighter spacing */
+  .tnav {
+    padding: 1rem 1.2rem;
+  }
+  .tnav-logo {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+
+  /* Work cards — tighter padding */
+  .card-inner {
+    padding: 1.2rem;
+  }
+  .card-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  .card-meta-side {
+    justify-content: space-between;
+  }
+
+  /* Manifesto smaller on mobile */
+  .manifesto-text {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    padding: 0 .5rem;
+  }
+
+  /* Toolkit pills reflow */
+  .toolkit-pills {
+    gap: .35rem;
+  }
+  .pill {
+    font-size: .68rem;
+    padding: .4rem .9rem;
+  }
+
+  /* Roots cards — stack full width */
+  .roots-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  /* Writing articles stack */
+  .writing-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  /* LinkedIn title */
+  .linkedin-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  /* Menu overlay mobile */
+  .menu-link {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  .menu-overlay-socials {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Pill nav label — smaller */
+  .pill-nav {
+    bottom: 1rem;
+    padding: .55rem 1rem .55rem 1.3rem;
+  }
+  .pill-nav-label {
+    font-size: .55rem;
+    min-width: 3.5rem;
+  }
+
+  /* Diamond divider tighter */
+  .diamond-divider {
+    padding: 1rem 0;
+  }
+
+  /* Ticker smaller */
+  .ticker-in span {
+    font-size: clamp(.7rem, 2.5vw, .85rem);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-ruby {
+    font-size: clamp(4rem, 24vw, 7rem);
+  }
+  .about-big-text {
+    font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+  }
+  .card-tags {
+    gap: .3rem;
+  }
+  .card-tag {
+    font-size: .6rem;
+    padding: .2rem .55rem;
+  }
 }

@@ -2,7 +2,7 @@
   <section class="writing-sec" id="writing">
     <div class="writing-header rv">
       <p class="writing-eyebrow">Published work</p>
-      <h2 class="writing-title" data-split>Words that landed.</h2>
+      <h2 class="writing-title" data-split>My Recent Hits!</h2>
     </div>
 
     <div class="writing-articles">
