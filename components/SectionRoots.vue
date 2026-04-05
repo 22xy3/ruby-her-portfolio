@@ -2,7 +2,7 @@
   <section class="roots-sec" id="advocacy">
     <div class="roots-header rv">
       <p class="roots-eyebrow">Beyond the resume</p>
-      <h2 class="roots-title" data-split>Before the title, there was this.</h2>
+      <h2 class="roots-title" data-split>Leadership &amp; Involvement</h2>
     </div>
 
     <div class="roots-grid">

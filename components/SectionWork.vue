@@ -59,7 +59,7 @@ const cards = [
   },
   {
     company: 'Structa Media',
-    role: 'Creative Strategist',
+    role: 'Creative Strategist & Executive Assistant',
     desc: 'Leads high-impact digital narratives for a creative talent agency representing creators with a collective audience of 15M+ followers. Develops conversion-focused scripts and content strategies to increase engagement and strengthen brand position.',
     tags: ['Scriptwriting', 'Creative Direction', '15M+ Reach', 'Engagement', 'Digital Media'],
     date: 'Apr 2025 – Present',

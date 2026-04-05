@@ -3,7 +3,7 @@
     <!-- Big bold statement -->
     <div class="about-statement rv">
       <p class="about-eyebrow">About Ruby</p>
-      <h2 class="about-big-text">Hmong-American creative strategist driven by storytelling and cultural insight. From healthcare advocacy to content for 15M+ audiences — I bring heart to every campaign.</h2>
+      <h2 class="about-big-text">Hmong-American creative strategist driven by storytelling and cultural insight. From healthcare advocacy to content for 15M+ audiences, I bring heart to every campaign.</h2>
     </div>
 
     <!-- Photo + info card row -->
