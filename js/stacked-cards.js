@@ -15,12 +15,12 @@ export function initStackedCards() {
   const cards = gsap.utils.toArray('.card');
   if (!cards.length) return;
 
-  // Pin each card — short pin duration so they stack tight
+  // Pin each card — tight overlap, minimal scrolling
   cards.forEach((card, i) => {
     ScrollTrigger.create({
       trigger: card,
       start: 'top top',
-      end: () => `+=${(cards.length - i) * 40}%`,
+      end: () => `+=${(cards.length - i) * 20}%`,
       pin: true,
       pinSpacing: true,
     });
