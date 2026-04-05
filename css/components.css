@@ -360,72 +360,66 @@
   color: var(--white-muted);
 }
 
-/* Cards stack — sticky positioning for natural overlap */
+/* Cards stack — sticky so each card sits behind the one above */
 .cards {
   display: flex;
   flex-direction: column;
   max-width: 960px;
   margin: 0 auto;
-  padding-bottom: 10vh;
 }
 
 .card {
   position: sticky;
-  will-change: transform;
+  top: 0;
 }
 
-/* Stagger the sticky top so cards peek behind each other */
-.card:nth-child(1) { top: 2vh; z-index: 1; }
-.card:nth-child(2) { top: 4vh; z-index: 2; }
-.card:nth-child(3) { top: 6vh; z-index: 3; }
-.card:nth-child(4) { top: 8vh; z-index: 4; }
-.card:nth-child(5) { top: 10vh; z-index: 5; }
+/* Later cards sit on top of earlier ones */
+.card:nth-child(1) { z-index: 1; }
+.card:nth-child(2) { z-index: 2; }
+.card:nth-child(3) { z-index: 3; }
+.card:nth-child(4) { z-index: 4; }
+.card:nth-child(5) { z-index: 5; }
 
 /* The card panel */
 .card-inner {
-  will-change: transform;
   width: 100%;
   padding: 1.5rem;
   border-radius: 0.75rem;
-  transform-origin: center top;
-  transition: transform .3s var(--ease-out-expo), opacity .3s ease;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, .25);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, .2), 0 4px 30px rgba(0, 0, 0, .15);
 }
 
 @media (min-width: 1024px) {
   .card-inner {
     padding: 2rem 2.5rem;
     border-radius: 1rem;
-    margin-bottom: 2rem;
   }
 }
 
-/* Per-card colors + subtle rotations — each folder is distinct */
+/* Per-card colors + subtle rotations */
 #card-0 .card-inner {
   color: #2A1A2E;
   background: linear-gradient(135deg, #E8D5F0 0%, #D8C0E0 100%);
-  transform: rotate(-0.8deg);
+  transform: rotate(-0.7deg);
 }
 #card-1 .card-inner {
   color: #1E1222;
   background: linear-gradient(135deg, #F0D0D8 0%, #E0B8C8 100%);
-  transform: rotate(0.6deg);
+  transform: rotate(0.5deg);
 }
 #card-2 .card-inner {
   color: #0E2828;
   background: linear-gradient(135deg, #C8E0E0 0%, #A8D0D0 100%);
-  transform: rotate(-0.5deg);
+  transform: rotate(-0.4deg);
 }
 #card-3 .card-inner {
   color: #2A2010;
   background: linear-gradient(135deg, #E8E0C8 0%, #D8D0B0 100%);
-  transform: rotate(0.9deg);
+  transform: rotate(0.8deg);
 }
 #card-4 .card-inner {
   color: #1A121E;
   background: linear-gradient(135deg, #D8C8E8 0%, #C0B0D8 100%);
-  transform: rotate(-0.4deg);
+  transform: rotate(-0.3deg);
 }
 
 /* Top row: title + number */

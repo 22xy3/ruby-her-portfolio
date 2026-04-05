@@ -1,38 +1,16 @@
 /* ═══════════════════════════════════════════════════════
-   STACKED CARDS — Sticky stack with scale-down on scroll
-   Clean overlapping folders, no excessive pinning
+   STACKED CARDS — Sticky stack, top card scrolls away
+   No fading, no scaling — clean and simple
    ═══════════════════════════════════════════════════════ */
 
 export function initStackedCards() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  const cards = gsap.utils.toArray('.card');
-  if (!cards.length) return;
-
-  // Scale down + slight push as each card gets covered by the next
-  cards.forEach((card, i) => {
-    if (i < cards.length - 1) {
-      const inner = card.querySelector('.card-inner');
-      if (!inner) return;
-
-      gsap.to(inner, {
-        scale: 0.92,
-        opacity: 0.5,
-        scrollTrigger: {
-          trigger: cards[i + 1],
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: true,
-        },
-      });
-    }
-  });
+  // No GSAP effects needed — pure CSS sticky handles it
 }
 
 export function initLenis() {
   if (typeof Lenis === 'undefined' || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
 
   const lenis = new Lenis();
 
