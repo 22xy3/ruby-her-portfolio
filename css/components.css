@@ -1005,11 +1005,11 @@
   position: relative;
   border: 1px solid rgba(0, 0, 0, .07);
   border-radius: var(--radius-md);
-  height: clamp(160px, 22vh, 220px);
-  max-width: 700px;
+  height: 200px;
+  max-width: 600px;
   margin: 0 auto;
   overflow: hidden;
-  background: rgba(0, 0, 0, .01);
+  background: rgba(0, 0, 0, .015);
 }
 
 /* Each blob */
@@ -1038,59 +1038,57 @@
 
 .bf-blob span {
   font-family: var(--font-sans);
-  font-size: clamp(1.4rem, 3.5vw, 3rem);
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -.01em;
   white-space: nowrap;
   pointer-events: none;
-  padding: 0 clamp(1.2rem, 2.5vw, 2rem);
 }
 
 /* All blobs start piled at the bottom center */
 .bf-blob-1 {
-  width: clamp(170px, 30vw, 300px);
-  height: clamp(70px, 11vw, 120px);
+  width: 180px;
+  height: 65px;
   background: linear-gradient(145deg, #F0E8D0, #E4D8B8);
   color: #4A4030;
-  top: 10px;
-  left: 5%;
+  top: 20px;
+  left: 30px;
   z-index: 4;
 }
 
 .bf-blob-2 {
-  width: clamp(200px, 34vw, 340px);
-  height: clamp(75px, 12vw, 130px);
+  width: 200px;
+  height: 65px;
   background: linear-gradient(145deg, #D0E8E8, #B8D8D8);
   color: #183838;
-  top: 10px;
-  left: 25%;
+  top: 20px;
+  left: 140px;
   z-index: 3;
 }
 
 .bf-blob-3 {
-  width: clamp(160px, 26vw, 260px);
-  height: clamp(65px, 10vw, 110px);
+  width: 160px;
+  height: 60px;
   background: linear-gradient(145deg, #F0D5E0, #E4C0D0);
   color: #3A1828;
-  top: 10px;
-  left: 45%;
+  top: 20px;
+  left: 250px;
   z-index: 2;
 }
 
 .bf-blob-4 {
-  width: clamp(60px, 8vw, 90px);
-  height: clamp(60px, 8vw, 90px);
+  width: 60px;
+  height: 60px;
   background: linear-gradient(145deg, #4A2E50, #3C2040);
   color: var(--cream);
-  top: 10px;
-  left: 55%;
+  top: 20px;
+  left: 370px;
   z-index: 5;
   border-radius: 50%;
 }
 
 .bf-blob-4 span {
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  padding: 0;
+  font-size: 1.1rem;
 }
 
 /* ── Trivia widget ── */
@@ -1164,10 +1162,6 @@
 }
 
 @media (max-width: 768px) {
-  .bf-dropzone { min-height: 250px; }
-  .bf-blob-1 { left: 2%; bottom: 25%; }
-  .bf-blob-2 { right: 2%; top: 10%; }
-  .bf-blob-3 { right: 5%; bottom: 5%; }
-  .bf-blob-4 { left: 55%; top: 40%; }
+  .bf-dropzone { height: 180px; }
   .bf-bottom { justify-content: center; text-align: center; }
 }
