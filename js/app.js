@@ -10,7 +10,6 @@ import { initMagnetic } from './magnetic.js';
 import { initTilt } from './tilt.js';
 import { initStackedCards, initLenis } from './stacked-cards.js';
 import { initTextSplit } from './text-effects.js';
-import { initDraggable } from './draggable.js';
 // Fun trivia
 function initTrivia() {
   const btn = document.getElementById('triviaBtn');
@@ -100,7 +99,6 @@ async function init() {
   initTilt();
   initStackedCards();
   initTextSplit();
-  initDraggable();
   initTrivia();
   initScrollProgress();
   initClock();
