@@ -40,21 +40,28 @@ export function initDraggable() {
     b.el.style.transform = `translate(${b.x}px, ${b.y}px) rotate(${b.rotation}deg)`;
   }
 
-  // Start all blobs settled at bottom
-  function settleAll() {
-    const cr = getRect();
+  // Refresh blob measurements
+  function measure() {
     blobs.forEach((b) => {
       b.width = b.el.offsetWidth;
       b.height = b.el.offsetHeight;
       b.origLeft = b.el.offsetLeft;
       b.origTop = b.el.offsetTop;
-      const maxY = cr.height - b.origTop - b.height;
-      b.y = maxY;
+    });
+  }
+
+  // Drop all blobs — they start at CSS position and fall
+  function dropAll() {
+    measure();
+    // Give each a tiny random horizontal nudge so they spread
+    blobs.forEach((b, i) => {
       b.x = 0;
-      b.vx = 0;
+      b.y = 0;
+      b.vx = (Math.random() - 0.5) * 100;
       b.vy = 0;
       setPos(b);
     });
+    startSim();
   }
 
   // Collision between two blobs (AABB)
@@ -153,6 +160,7 @@ export function initDraggable() {
   // Drag handlers
   blobs.forEach((b, i) => {
     function pickUp(clientX, clientY) {
+      measure();
       b.isDragging = true;
       draggedIndex = i;
       b.vx = 0;
@@ -210,6 +218,6 @@ export function initDraggable() {
     window.addEventListener('touchend', () => drop());
   });
 
-  // Initial settle
-  setTimeout(settleAll, 100);
+  // Drop them all on load — they fall and pile up
+  setTimeout(dropAll, 300);
 }
