@@ -14,6 +14,18 @@
         <span class="writing-article-cta">Read on The Vault →</span>
       </a>
     </div>
+
+    <!-- Flyers — playful scattered grid -->
+    <div class="flyers-wrap rv rv-d2">
+      <p class="flyers-label"><span class="flyers-sparkle">✦</span> Design work <span class="flyers-sparkle">✦</span></p>
+      <div class="flyers-grid">
+        <div v-for="(flyer, i) in flyers" :key="flyer.alt"
+          class="flyer-card" :class="`flyer-card-${i + 1}`">
+          <img :src="flyer.src" :alt="flyer.alt" loading="lazy">
+          <span class="flyer-tape flyer-tape-top"></span>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -29,5 +41,11 @@ const articles = [
     title: 'Fast Fashion and Student Ethics: Staying Stylish Without Fracturing the Planet or Your Wallet',
     url: 'https://www.thevaultuwmadison.com/blog/fast-fashion-and-student-ethic-staying-stylish-without-fracturing-the-planet-or-your-wallet',
   },
+]
+
+const flyers = [
+  { src: 'https://images.guns.lol/b893d7d182282a7a680f0e2e7baa8e3278bd7f4e/BEo2KL.webp', alt: 'Ruby Her flyer design 1' },
+  { src: 'https://images.guns.lol/b893d7d182282a7a680f0e2e7baa8e3278bd7f4e/fgRmQB.webp', alt: 'Ruby Her flyer design 2' },
+  { src: 'https://images.guns.lol/b893d7d182282a7a680f0e2e7baa8e3278bd7f4e/4I0Lmc.webp', alt: 'Ruby Her flyer design 3' },
 ]
 </script>

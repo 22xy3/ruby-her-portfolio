@@ -1094,6 +1094,163 @@
 }
 
 /* ═══════════════════════════════════════
+   FLYERS — playful scattered grid
+   ═══════════════════════════════════════ */
+.flyers-wrap {
+  max-width: 1100px;
+  margin: clamp(3rem, 6vw, 5rem) auto 0;
+  position: relative;
+}
+
+.flyers-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: var(--amber);
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
+
+.flyers-sparkle {
+  display: inline-block;
+  color: var(--blush);
+  font-size: .7em;
+  animation: sparkleSpin 4s ease-in-out infinite;
+}
+
+.flyers-sparkle:last-child {
+  animation-delay: 2s;
+}
+
+@keyframes sparkleSpin {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: .9; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
+}
+
+.flyers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.flyer-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: visible;
+  background: var(--white);
+  padding: .7rem .7rem 1.2rem;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, .25),
+    0 2px 8px rgba(143, 112, 174, .15),
+    0 0 0 1px rgba(255, 255, 255, .08) inset;
+  transition: transform .6s var(--ease-out-quart), box-shadow .4s ease;
+  cursor: pointer;
+}
+
+.flyer-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - .2rem);
+}
+
+/* Scattered rotations — playful Polaroid vibe */
+.flyer-card-1 {
+  transform: rotate(-4deg);
+}
+
+.flyer-card-2 {
+  transform: rotate(2deg) translateY(-1rem);
+}
+
+.flyer-card-3 {
+  transform: rotate(-2deg) translateY(.5rem);
+}
+
+.flyer-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.04) !important;
+  z-index: 5;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, .35),
+    0 8px 24px rgba(143, 112, 174, .3),
+    0 0 0 1px rgba(255, 255, 255, .15) inset;
+}
+
+/* Washi tape decoration on top */
+.flyer-tape {
+  position: absolute;
+  top: -.75rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(216, 200, 228, .9) 0%,
+    rgba(184, 152, 208, .85) 50%,
+    rgba(216, 200, 228, .9) 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  pointer-events: none;
+}
+
+.flyer-tape::before,
+.flyer-tape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, .4) 2px,
+    rgba(255, 255, 255, .4) 4px
+  );
+}
+
+.flyer-tape::before { left: 0; }
+.flyer-tape::after { right: 0; }
+
+/* Each card gets a slightly different tape color */
+.flyer-card-1 .flyer-tape {
+  background: linear-gradient(135deg, rgba(224, 208, 228, .9), rgba(201, 160, 208, .85), rgba(224, 208, 228, .9));
+}
+.flyer-card-2 .flyer-tape {
+  background: linear-gradient(135deg, rgba(212, 160, 216, .85), rgba(184, 152, 208, .9), rgba(212, 160, 216, .85));
+  transform: translateX(-50%) rotate(4deg);
+}
+.flyer-card-3 .flyer-tape {
+  background: linear-gradient(135deg, rgba(216, 200, 228, .9), rgba(159, 128, 174, .85), rgba(216, 200, 228, .9));
+  transform: translateX(-50%) rotate(-5deg);
+}
+
+@media (max-width: 900px) {
+  .flyers-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    gap: 2.5rem;
+  }
+  .flyer-card-1,
+  .flyer-card-2,
+  .flyer-card-3 {
+    transform: rotate(-2deg);
+  }
+  .flyer-card-2 { transform: rotate(2deg); }
+  .flyer-card-3 { transform: rotate(-1deg); }
+}
+
+/* ═══════════════════════════════════════
    LINKEDIN — Scattered overlapping embeds
    ═══════════════════════════════════════ */
 .linkedin-sec {
