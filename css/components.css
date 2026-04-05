@@ -1091,6 +1091,44 @@
   font-size: .85rem;
 }
 
+/* ── Footer social links ── */
+.bf-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: .5rem 0;
+}
+
+.bf-social-link {
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  transition: color .3s ease;
+  opacity: .5;
+}
+
+.bf-social-link .mask {
+  height: 1.2em;
+}
+
+.bf-social-link:hover {
+  color: var(--terracotta);
+  opacity: 1;
+}
+
+.bf-social-dot {
+  font-size: .35rem;
+  color: var(--terracotta);
+  opacity: .4;
+}
+
 /* ── Trivia widget ── */
 .bf-trivia {
   display: flex;
