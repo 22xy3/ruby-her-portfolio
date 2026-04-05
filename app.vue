@@ -48,10 +48,8 @@ onMounted(async () => {
   const { initReveal, initParallax, initCounters, initImageReveal } = useScrollEffects()
   const { init: initMagnetic } = useMagnetic()
   const { init: initTextSplit } = useTextSplit()
-  const { init: initSparkleTrail } = useSparkleTrail()
 
   initCursor()
-  initSparkleTrail()
   await initLoader()
   initLenis()
 
