@@ -62,12 +62,18 @@ function nextFact() {
 }
 
 function updateClock() {
-  const now = new Date()
-  const h = now.getHours()
-  const m = String(now.getMinutes()).padStart(2, '0')
-  const ampm = h >= 12 ? 'PM' : 'AM'
-  const h12 = h % 12 || 12
-  time.value = `${String(h12).padStart(2, '0')} ${m} ${ampm}`
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  }).formatToParts(new Date())
+
+  const h = parts.find(p => p.type === 'hour')?.value ?? '--'
+  const m = parts.find(p => p.type === 'minute')?.value ?? '--'
+  const ampm = parts.find(p => p.type === 'dayPeriod')?.value?.toUpperCase() ?? ''
+
+  time.value = `${h} ${m} ${ampm} CT`
 }
 
 onMounted(() => {
