@@ -44,8 +44,8 @@ const articles = [
 ]
 
 const flyers = [
-  { src: '/flyers/hapa-graduation-cord.jpg', alt: 'HAPA Seniors Key Club Graduation Cord flyer' },
-  { src: '/flyers/hapa-clean-up-day.jpg', alt: 'HAPA Clean Up Day community event flyer' },
-  { src: '/flyers/aapi-day.jpg', alt: 'AAPI Day community celebration flyer' },
+  { src: '/flyers/hapa-graduation-cord.png', alt: 'HAPA Seniors Key Club Graduation Cord flyer' },
+  { src: '/flyers/hapa-clean-up-day.png', alt: 'HAPA Clean Up Day community event flyer' },
+  { src: '/flyers/aapi-day.png', alt: 'AAPI Day community celebration flyer' },
 ]
 </script>
