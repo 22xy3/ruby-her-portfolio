@@ -22,7 +22,7 @@
       </h1>
     </div>
     <p class="hero-tag">Creative Strategist · Marketing Professional · Advocate</p>
-    <p class="hero-desc">Hmong-American &nbsp;·&nbsp; First-Gen &nbsp;·&nbsp; UW-Madison Marketing</p>
+    <p class="hero-desc">Hmong-American &nbsp;·&nbsp; First-Gen &nbsp;·&nbsp; UW-Madison Information Sciences</p>
 
     <div class="hero-scroll" aria-hidden="true">
       <span>Scroll</span>

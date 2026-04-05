@@ -6,7 +6,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       title: 'Ruby Her | Creative Strategist & Marketing Professional',
       meta: [
-        { name: 'description', content: 'Ruby Her — Hmong-American creative strategist and marketing professional at UW-Madison. First-gen. Business Marketing.' },
+        { name: 'description', content: 'Ruby Her — Hmong-American creative strategist at UW-Madison. First-gen. Information Sciences, pre-business track.' },
         { property: 'og:title', content: 'Ruby Her | Creative Strategist & Marketing Professional' },
         { property: 'og:description', content: 'Hmong-American creative strategist, marketing professional, writer, editor, and advocate.' },
         { property: 'og:type', content: 'website' },
