@@ -16,13 +16,17 @@
       </a>
     </div>
 
-    <!-- Flyers -->
+    <!-- Design work -->
     <div class="writing-flyers rv rv-d2">
       <p class="writing-flyer-label">Design work</p>
       <div class="writing-flyer-grid">
-        <div v-for="(flyer, i) in flyers" :key="flyer.alt"
-          class="writing-flyer" :class="`writing-flyer-${i + 1}`">
-          <img :src="flyer.src" :alt="flyer.alt" loading="lazy">
+        <div v-for="(flyer, i) in flyers" :key="flyer.title"
+          class="writing-flyer-card" :class="`writing-flyer-${i + 1}`"
+          :style="{ background: flyer.bg }">
+          <span class="flyer-emoji">{{ flyer.emoji }}</span>
+          <h4 class="flyer-title">{{ flyer.title }}</h4>
+          <p class="flyer-desc">{{ flyer.desc }}</p>
+          <span class="flyer-org">{{ flyer.org }}</span>
         </div>
       </div>
     </div>
@@ -44,8 +48,26 @@ const articles = [
 ]
 
 const flyers = [
-  { src: '/flyers/hapa-graduation-cord.png', alt: 'HAPA Seniors Key Club Graduation Cord flyer' },
-  { src: '/flyers/hapa-clean-up-day.png', alt: 'HAPA Clean Up Day community event flyer' },
-  { src: '/flyers/aapi-day.png', alt: 'AAPI Day community celebration flyer' },
+  {
+    emoji: '🎓',
+    title: 'Key Club Graduation Cord',
+    desc: 'Flyer for HAPA seniors to order their Key Club graduation cords.',
+    org: 'HAPA Key Club',
+    bg: 'linear-gradient(145deg, #e8e6f0, #d0cde0)',
+  },
+  {
+    emoji: '🌿',
+    title: 'HAPA Clean Up Day',
+    desc: 'Community event flyer — collecting garbage around HAPA to promote environmental health.',
+    org: 'HAPA Key Club',
+    bg: 'linear-gradient(145deg, #dce8d8, #c8d8c0)',
+  },
+  {
+    emoji: '🏮',
+    title: 'AAPI Day Celebration',
+    desc: 'Community event with performances, activities, and food honoring Asian American and Pacific Islander month.',
+    org: 'HAPA Key Club',
+    bg: 'linear-gradient(145deg, #f0e8d8, #e8d8c0)',
+  },
 ]
 </script>
